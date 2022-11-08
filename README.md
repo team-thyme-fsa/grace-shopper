@@ -1,3 +1,5 @@
+Our idea is to create a store that sells Pokemon items. (Like the Pokimart in the games)
+
 # FS-App-Template
 
 ## Setup
