@@ -1,4 +1,16 @@
+# Grace Shopper Idea
 Our idea is to create a store that sells Pokemon items. (Like the Pokimart in the games)
+
+## Color Pallet
+Our Color Pallet can be found at [Coolors](https://coolors.co/ebebeb-e0e0e0-a3e84a-227ee7-fa9a24-061623)
+|Color Pallet|
+|:----------:|
+|ebebeb      |
+|e0e0e0      |
+|a3e84a      |
+|227ee7      |
+|fa9a24      |
+|061623      |
 
 # FS-App-Template
 
