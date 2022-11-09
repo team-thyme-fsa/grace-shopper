@@ -7,14 +7,46 @@ const db = require('../db');
 // const SALT_ROUNDS = 5;
 
 const User = db.define('user', {
-  //   username: {
-  //     type: Sequelize.STRING,
-  //     unique: true,
-  //     allowNull: false
-  //   },
-  //   password: {
-  //     type: Sequelize.STRING,
-  //   }
+  admin: {
+    type: Sequelize.BOOLEAN,
+  },
+  firstName: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
+  },
+  lastName: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
+  },
+  email: {
+    type: Sequelize.STRING,
+    unique: true,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+      isEmail: true,
+    },
+  },
+  password: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
+  },
+  address: {
+    type: Sequelize.TEXT,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
+  },
 });
 
 module.exports = User;
