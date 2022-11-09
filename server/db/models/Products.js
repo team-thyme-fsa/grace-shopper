@@ -10,6 +10,9 @@ const Product = db.define('product', {
       notEmpty: true,
     },
   },
+  type: {
+    type: Sequelize.ENUM('POKEBALL', 'MEDICINE'),
+  },
   description: {
     type: Sequelize.TEXT,
     allowNull: false,
