@@ -30,7 +30,6 @@ const users = [
     email: 'iamadmin@mail.com',
     password: 001010,
     address: 'secret',
-    orderId: 1,
   },
   {
     admin: false,
@@ -39,7 +38,31 @@ const users = [
     email: 'tonystark@mail.com',
     password: 123123,
     address: 'somewhere in there',
-    orderId: 2,
+  },
+
+  {
+    admin: false,
+    firstName: 'hulk',
+    lastName: 'doctor',
+    email: 'dontgetmemad@mail.com',
+    password: 909090,
+    address: 'orangecounty 21st 22-22',
+  },
+  {
+    admin: false,
+    firstName: 'Harry',
+    lastName: 'Potter',
+    email: 'learnmagic@mail.com',
+    password: 828282,
+    address: 'Hogwart MagicSchool with Dumbleedore',
+  },
+  {
+    admin: true,
+    firstName: 'Mike',
+    lastName: 'Tyson',
+    email: 'everyonehasaplan@mail.com',
+    password: 888888,
+    address: 'miamibeach 221 32-13',
   },
 ];
 
