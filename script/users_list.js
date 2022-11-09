@@ -1,4 +1,4 @@
-const users = [
+const users_list = [
   {
     admin: false,
     firstName: 'Peter',
@@ -66,4 +66,4 @@ const users = [
   },
 ];
 
-module.exports = users;
+module.exports = users_list;

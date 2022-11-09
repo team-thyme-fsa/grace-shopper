@@ -1,4 +1,4 @@
-export const products_list = [
+const products_list = [
   {
     name: 'Poké Ball',
     type: 'POKEBALL',
@@ -67,7 +67,7 @@ export const products_list = [
     type: 'POKEBALL',
     description:
       'The best Ball with the ultimate level of performance. It will catch any wild Pokémon without fail.',
-    price: 1000000000000000,
+    price: 1000000000,
     imageUrl:
       'https://archives.bulbagarden.net/media/upload/9/95/Dream_Master_Ball_Sprite.png',
   },
@@ -186,7 +186,7 @@ export const products_list = [
   },
   {
     name: 'Max Revive',
-    type: 'Medicine',
+    type: 'MEDICINE',
     description:
       "A medicine that revives a fainted Pokémon. It fully restores the Pokémon's HP. Potential side effects include nose bleeds and chest hair.",
     price: 3200,
@@ -194,3 +194,5 @@ export const products_list = [
       'https://archives.bulbagarden.net/media/upload/4/45/Dream_Max_Revive_Sprite.png',
   },
 ];
+
+module.exports = products_list;
