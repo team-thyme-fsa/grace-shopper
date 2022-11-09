@@ -5,6 +5,9 @@ const {
   models: { User },
 } = require('../server/db');
 
+const { users_list } = require('./user');
+const { products_list } = require('./products_list');
+
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
