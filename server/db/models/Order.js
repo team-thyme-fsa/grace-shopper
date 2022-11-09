@@ -6,10 +6,18 @@ const Order = db.define('order', {
     type: Sequelize.DATE
   },
   shippingInfo: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   billingInfo: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   completed: {
     type: Sequelize.BOOLEAN,
