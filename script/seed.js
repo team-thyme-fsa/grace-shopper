@@ -2,8 +2,11 @@
 
 const {
   db,
-  models: { User },
+  models: { User, Product },
 } = require('../server/db');
+
+const users_list = require('./users_list');
+const products_list = require('./products_list');
 
 /**
  * seed - this function clears the database, updates tables to
@@ -13,20 +16,25 @@ async function seed() {
   await db.sync({ force: true }); // clears db and matches models to tables
   console.log('db synced!');
 
+  // Creating Products
+  const products = await Promise.all(
+    products_list.map((product) => {
+      return Product.create(product);
+    }),
+  );
+
+  console.log(`seeded ${products.length} products`);
+  console.log(`seeded successfully`);
+
   // Creating Users
-  const users = await Promise.all([
-    User.create({ username: 'cody', password: '123' }),
-    User.create({ username: 'murphy', password: '123' }),
-  ]);
+  const users = await Promise.all(
+    users_list.map((user) => {
+      return User.create(user);
+    }),
+  );
 
   console.log(`seeded ${users.length} users`);
   console.log(`seeded successfully`);
-  return {
-    users: {
-      cody: users[0],
-      murphy: users[1],
-    },
-  };
 }
 
 /*
