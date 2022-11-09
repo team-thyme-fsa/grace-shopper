@@ -89,12 +89,108 @@ export const products_list = [
     imageUrl:
       'https://archives.bulbagarden.net/media/upload/4/44/Dream_Fast_Ball_Sprite.png',
   },
+  {
+    name: 'Potion',
+    type: 'MEDICINE',
+    description: 'Restores 20 HP.',
+    price: 300,
+    imageUrl:
+      'https://archives.bulbagarden.net/media/upload/d/df/Dream_Potion_Sprite.png',
+  },
+  {
+    name: 'Super Potion',
+    type: 'MEDICINE',
+    description: 'Restores 60 HP.',
+    price: 700,
+    imageUrl:
+      'https://archives.bulbagarden.net/media/upload/5/57/Dream_Super_Potion_Sprite.png',
+  },
+  {
+    name: 'Hyper Potion',
+    type: 'MEDICINE',
+    description: 'Restores 120 HP.',
+    price: 1200,
+    imageUrl:
+      'https://archives.bulbagarden.net/media/upload/c/c8/Dream_Hyper_Potion_Sprite.png',
+  },
+  {
+    name: 'Max Potion',
+    type: 'MEDICINE',
+    description: 'Fully restores HP.',
+    price: 2500,
+    imageUrl:
+      'https://archives.bulbagarden.net/media/upload/a/a2/Dream_Max_Potion_Sprite.png',
+  },
+  {
+    name: 'Burn Heal',
+    type: 'MEDICINE',
+    description:
+      'A spray-type medicine. It heals a single Pokémon that is suffering from a burn.',
+    price: 250,
+    imageUrl:
+      'https://archives.bulbagarden.net/media/upload/f/f4/Dream_Burn_Heal_Sprite.png',
+  },
+  {
+    name: 'Full Heal',
+    type: 'MEDICINE',
+    description:
+      'A spray-type medicine. It heals all the status problems of a single Pokémon.',
+    price: 600,
+    imageUrl:
+      'https://archives.bulbagarden.net/media/upload/0/07/Dream_Full_Heal_Sprite.png',
+  },
+  {
+    name: 'Ice Heal',
+    type: 'MEDICINE',
+    description:
+      'A spray-type medicine. It defrosts a Pokémon that has been frozen solid.',
+    price: 250,
+    imageUrl:
+      'https://archives.bulbagarden.net/media/upload/2/2a/Dream_Ice_Heal_Sprite.png',
+  },
+  {
+    name: 'Paralyze Heal',
+    type: 'MEDICINE',
+    description:
+      'A spray-type medicine. It eliminates paralysis from a single Pokémon.',
+    price: 250,
+    imageUrl:
+      'https://archives.bulbagarden.net/media/upload/2/2a/Dream_Paralyze_Heal_Sprite.png',
+  },
+  {
+    name: 'Antidote',
+    type: 'MEDICINE',
+    description:
+      'A spray-type medicine. It lifts the effect of poison from one Pokémon.',
+    price: 100,
+    imageUrl:
+      'https://archives.bulbagarden.net/media/upload/4/42/Dream_Antidote_Sprite.png',
+  },
+  {
+    name: 'Rare Candy',
+    type: 'MEDICINE',
+    description:
+      'A candy that is packed with energy. It raises the level of a single Pokémon by one. Please note that taking care candies can bar your Pokémon from most official Pokémon battles.',
+    price: 100000,
+    imageUrl:
+      'https://archives.bulbagarden.net/media/upload/0/02/Dream_Rare_Candy_Sprite.png',
+  },
+  {
+    name: 'Revive',
+    type: 'MEDICINE',
+    description:
+      "A medicine that revives a fainted Pokémon. It restores half the Pokémon's maximum HP. Potential side effects include nose bleeds.",
+    price: 1500,
+    imageUrl:
+      'https://archives.bulbagarden.net/media/upload/8/8c/Dream_Revive_Sprite.png',
+  },
+  {
+    name: 'Max Revive',
+    type: 'Medicine',
+    description:
+      "A medicine that revives a fainted Pokémon. It fully restores the Pokémon's HP. Potential side effects include nose bleeds and chest hair.",
+    price: 3200,
+    imageUrl:
+      'https://archives.bulbagarden.net/media/upload/4/45/Dream_Max_Revive_Sprite.png',
+  },
 ];
-
-// {
-//   name: '',
-//   type: '',
-//   description: '',
-//   price: ,
-//   imageUrl: '',
-// },
