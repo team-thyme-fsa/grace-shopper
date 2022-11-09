@@ -17,3 +17,5 @@ const SingleProduct = (props) => {
     </div>
   )
 }
+
+export default SingleProduct;
