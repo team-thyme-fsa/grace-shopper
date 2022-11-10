@@ -5,7 +5,7 @@ import { logout } from '../store';
 
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
-    <nav>
+    <nav id="navbar">
       <Link to="/">HOME</Link>
       <Link to="/pokéballs">POKÉBALLS</Link>
       <Link to="/medicine">MEDICINE</Link>
