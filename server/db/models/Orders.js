@@ -3,7 +3,8 @@ const db = require('../db')
 
 const Order = db.define('order', {
   date: {
-    type: Sequelize.DATE
+    type: Sequelize.DATE,
+    defaultValue: Sequelize.NOW
   },
   shippingInfo: {
     type: Sequelize.STRING,
