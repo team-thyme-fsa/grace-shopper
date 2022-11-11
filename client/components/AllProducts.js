@@ -37,3 +37,5 @@ const mapDispatchToProps = (dispatch) => {
     fetchAllProd: () => dispatch(fetchAllProd()),
   };
 };
+
+export default connect(mapStateToProps, mapDispatchToProps)(AllProducts);
