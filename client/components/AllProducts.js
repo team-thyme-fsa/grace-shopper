@@ -4,27 +4,25 @@ import { fetchAllProd } from '../store/products';
 
 import Product from './Product';
 
-// TODO(Carina): change to functional component
-export class AllProducts extends React.Component {
-  componentDidMount() {
-    this.props.fetchAllProd();
-  }
+const AllProducts = (props) => {
+  const { fetchAllProd } = props;
+  const { products } = props.products;
 
-  render() {
-    const { products } = this.props.products;
+  React.useEffect(() => {
+    fetchAllProd();
+  }, []);
 
-    return (
-      <div>
-        <h2>Products</h2>
-        <ul>
-          {products.map((product) => (
-            <Product product={product} key={product.id} />
-          ))}
-        </ul>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <h2>Products</h2>
+      <ul>
+        {products.map((product) => (
+          <Product product={product} key={product.id} />
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 const mapStateToProps = (state) => {
   return {
