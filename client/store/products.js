@@ -18,14 +18,14 @@ const setProd = (product) => ({ type: SET_PROD, product})
  */
 export const fetchAllProd = () => {
   return async (dispatch) => {
-    const { data } = axios.get('/api/products');
+    const { data } = await axios.get('/api/products');
     dispatch(setAllProd(data));
   };
 };
 
 export const fetchProd = (id) => {
   return async (dispatch) => {;
-    const { data } = axios.get(`/api/products/${id}`);
+    const { data } = await axios.get(`/api/products/${id}`);
     dispatch(setProd(data));
   }
 }
