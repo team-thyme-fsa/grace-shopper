@@ -16,7 +16,7 @@ const setAllProd = (products) => ({ type: SET_ALL_PROD, products });
  */
 export const fetchAllProd = () => {
   return async (dispatch) => {
-    const { data } = axios.get('/api/projects');
+    const { data } = await axios.get('/api/products');
     dispatch(setAllProd(data));
   };
 };
