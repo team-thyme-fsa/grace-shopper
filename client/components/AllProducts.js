@@ -9,4 +9,19 @@ export class AllProducts extends React.Component {
   componentDidMount() {
     this.props.fetchAllProd();
   }
+
+  render() {
+    const { products } = this.props.products;
+
+    return (
+      <div>
+        <h2>Products</h2>
+        <ul>
+          {products.map((product) => (
+            <Product product={product} key={product.id} />
+          ))}
+        </ul>
+      </div>
+    );
+  }
 }
