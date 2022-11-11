@@ -31,3 +31,9 @@ const mapStateToProps = (state) => {
     products: state.products,
   };
 };
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchAllProd: () => dispatch(fetchAllProd()),
+  };
+};
