@@ -9,56 +9,66 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <div id="navigation-bar">
     <nav id="navbar">
-      <Link to="/">
-        <button
-          type="button"
-          name="home"
-          className="button yellow-orange-color-wheel"
-        >
-          HOME
-        </button>
-      </Link>
+      <div>
+        <Link to="/">
+          <button
+            type="button"
+            name="home"
+            className="button yellow-orange-color-wheel"
+          >
+            HOME
+          </button>
+        </Link>
 
-      <Link to="/pokéballs">
-        <button type="button" name="pokéballs" className="btn pokéballs">
-          POKÉBALLS
-        </button>
-      </Link>
+        <Link to="/pokéballs">
+          <button type="button" name="pokéballs" className="btn pokéballs">
+            POKÉBALLS
+          </button>
+        </Link>
 
-      <Link to="/medicine">
-        <button
-          type="button"
-          name="medicine"
-          className="button yellow-orange-color-wheel"
-        >
-          MEDICINE
-        </button>
-      </Link>
+        <Link to="/medicine">
+          <button
+            type="button"
+            name="medicine"
+            className="button yellow-orange-color-wheel"
+          >
+            MEDICINE
+          </button>
+        </Link>
+      </div>
 
-      {/*<h1>PokéMart</h1>*/}
-      <img src="Logo.png" alt="PokéMart logo" width="90px" height="90px" />
-      {isLoggedIn ? (
-        <div>
-          {/* The navbar will show this link after you log in */}
-          <a href="#" onClick={handleClick}>
-            LOGOUT
-          </a>
-        </div>
-      ) : (
-        <div>
-          {/* The navbar will show this link before you log in */}
-          <Link to="/login">
-            <button type="button" name="login" className="btn login">
-              LOGIN
-            </button>
-          </Link>
-        </div>
-      )}
-      <Link to="/cart">
-        <button type="button" name="cart" className="button inchworm">
-          <FontAwesomeIcon icon={faShoppingCart} style={{ color: '#061623' }} />
-        </button>
-      </Link>
+      <div className="logo">
+        {/*<h1>PokéMart</h1>*/}
+        <img src="Logo.png" alt="PokéMart logo" width="90px" height="90px" />
+      </div>
+
+      <div>
+        {isLoggedIn ? (
+          <div>
+            {/* The navbar will show this link after you log in */}
+            <a href="#" onClick={handleClick}>
+              LOGOUT
+            </a>
+          </div>
+        ) : (
+          <div>
+            {/* The navbar will show this link before you log in */}
+            <Link to="/login">
+              <button type="button" name="login" className="btn login">
+                LOGIN
+              </button>
+            </Link>
+          </div>
+        )}
+        <Link to="/cart">
+          <button type="button" name="cart" className="button inchworm">
+            <FontAwesomeIcon
+              icon={faShoppingCart}
+              style={{ color: '#061623' }}
+            />
+          </button>
+        </Link>
+      </div>
     </nav>
   </div>
 );
