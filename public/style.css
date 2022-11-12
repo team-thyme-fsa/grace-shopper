@@ -1,6 +1,7 @@
 body {
   font-family: sans-serif;
   background-color: #ebebeb;
+  margin: 0;
 }
 
 a {
@@ -27,4 +28,10 @@ form div {
 
 #navbar div {
   display: inline;
+}
+
+#navigation-bar {
+  background-color: #227ee7;
+  height: 120px;
+  border-radius: 25px;
 }
