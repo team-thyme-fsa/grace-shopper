@@ -6,9 +6,24 @@ import { logout } from '../store';
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <div id="navigation-bar">
     <nav id="navbar">
-      <Link to="/">HOME</Link>
-      <Link to="/pokéballs">POKÉBALLS</Link>
-      <Link to="/medicine">MEDICINE</Link>
+      <Link to="/">
+        <button type="button" name="home">
+          HOME
+        </button>
+      </Link>
+
+      <Link to="/pokéballs">
+        <button type="button" name="pokéballs">
+          POKÉBALLS
+        </button>
+      </Link>
+
+      <Link to="/medicine">
+        <button type="button" name="medicine">
+          MEDICINE
+        </button>
+      </Link>
+
       <h1>PokéMart</h1>
       {isLoggedIn ? (
         <div>
@@ -20,10 +35,18 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
       ) : (
         <div>
           {/* The navbar will show this link before you log in */}
-          <Link to="/login">LOGIN</Link>
+          <Link to="/login">
+            <button type="button" name="login">
+              LOGIN
+            </button>
+          </Link>
         </div>
       )}
-      <Link to="/cart">🛒</Link>
+      <Link to="/cart">
+        <button type="button" name="cart">
+          🛒
+        </button>
+      </Link>
     </nav>
   </div>
 );
