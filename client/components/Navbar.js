@@ -35,7 +35,8 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
         </button>
       </Link>
 
-      <h1>PokéMart</h1>
+      {/*<h1>PokéMart</h1>*/}
+      <img src="Logo.png" alt="PokéMart logo" width="90px" height="90px" />
       {isLoggedIn ? (
         <div>
           {/* The navbar will show this link after you log in */}
