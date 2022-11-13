@@ -125,7 +125,7 @@ button {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  padding: 25px;
+  padding: 0px 25px 25px 25px;
 }
 
 .product {
@@ -135,7 +135,7 @@ button {
 }
 
 .product-info {
-  padding: 25px;
+  padding: 0px 25px 25px 25px;
 }
 
 .price {
@@ -198,3 +198,7 @@ button {
   color: #061623;
 }
 
+h2 {
+  text-align: center;
+  font-size: xx-large;
+}
