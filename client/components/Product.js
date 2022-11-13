@@ -5,9 +5,9 @@ const Product = (props) => {
 
   return (
     <div>
+      <img src={imageUrl} className="image" />
       <h3>{name}</h3>
       <p>{price}</p>
-      <img src={imageUrl} />
       {/* TODO(Carina): check button type="button" OR "submit" */}
       <button type="button">ADD TO CART</button>
       {/* TODO(Carina): add onClick */}

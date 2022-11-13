@@ -114,3 +114,10 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.image {
+  border: 1px solid #061623;
+  border-radius: 25px;
+  background-color: #e0e0e0;
+  padding: 34px 76px;
+}
