@@ -13,11 +13,17 @@ const Product = (props) => {
 
         <div className="buttons">
           {/* TODO(Carina): check button type="button" OR "submit" */}
-          <button type="button">ADD TO CART</button>
+          <button type="button" className="add-to-cart-button otl">
+            ADD TO CART
+          </button>
 
           <div id="details-button">
             {/* TODO(Carina): add onClick */}
-            <button type="button" name="details">
+            <button
+              type="button"
+              name="details"
+              className="details-button outl"
+            >
               DETAILS
             </button>
           </div>
