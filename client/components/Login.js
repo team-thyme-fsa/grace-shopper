@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { authenticate } from '../store';
-import { Link } from 'react-router-dom';
 
 const Auth = (props) => {
-  const { name, handleSubmit, error } = props;
+  const { name, displayName, handleSubmit, error } = props;
 
   let [authMode, setAuthMode] = useState('login');
 
@@ -13,119 +12,122 @@ const Auth = (props) => {
   };
   if (authMode === 'login') {
     return (
-      <div className="Auth-form-container">
+      <div className="login-form-container">
         <form className="Auth-form" onSubmit={handleSubmit} name={name}>
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Log In</h3>
             <div className="text-center">
-              Not registered yet?{' '}
-              <span className="link-primary" onClick={changeAuthMode}>
+              Not registered yet?
+              <span className="switch" onClick={changeAuthMode}>
                 Sign Up
               </span>
             </div>
-            <div className="">
+            <div className="user-box">
               <label>Email</label>
               <input
                 name="email"
                 type="email"
-                className=""
+                className="user-box"
                 placeholder="Enter email"
                 required
               />
             </div>
-            <div className="">
+            <div className="user-box">
               <label>Password</label>
               <input
                 name="password"
                 type="password"
-                className=""
+                className="user-box"
                 placeholder="Enter password"
                 required
               />
             </div>
-            <div className="">
+            <div className="user-box">
               <button type="submit" className="loginbtn">
-                Submit
+                Login
               </button>
             </div>
-            <br></br>
-            <br></br>
             <br></br>
             <br></br>
           </div>
           {error && error.response && <div> {error.response.data} </div>}
         </form>
+        <img
+          src="https://wallpaper.dog/large/10810019.jpg"
+          className="login-img"
+        ></img>
       </div>
     );
   }
   //
   return (
-    <div className="Auth-form-container">
+    <div className="signup-form-container">
       <form className="Auth-form">
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign Up</h3>
           <div className="text-center">
             Already registered?{' '}
-            <span className="link-primary" onClick={changeAuthMode}>
+            <span className="switch" onClick={changeAuthMode}>
               Log In
             </span>
           </div>
-          <div className="">
+          <div className="user-box">
             <label>First Name</label>
             <input
-              name="lastName"
-              type="firstName"
-              className=""
+              name="firstName"
+              className="user-box"
               placeholder="e.g Jane"
               required
             />
           </div>
-          <div className="">
+          <div className="user-box">
             <label>Last Name</label>
             <input
               name="lastName"
-              type="lastName"
-              className=""
+              className="user-box"
               placeholder="e.g Doe"
               required
             />
           </div>
-          <div className="">
+          <div className="user-box">
             <label>Email address</label>
             <input
               name="email"
               type="email"
-              className=""
-              placeholder="Email Address"
+              className="user-box"
+              placeholder="Email"
               required
             />
           </div>
-          <div className="">
+          <div className="user-box">
             <label>Password</label>
             <input
               name="password"
               type="password"
-              className=""
+              className="user-box"
               placeholder="Password"
               required
             />
           </div>
-          {/* <div className="">
-            <label>Password</label>
+          {/* <div className="user-box">
+            <label>Address</label>
             <input
               name="address"
-              type="address"
-              className=""
-              placeholder="Password"
+              className="user-box"
+              placeholder="Address"
             />
           </div> */}
-          <div className="">
+          <div className="user-box">
             <button type="submit" className="loginbtn">
-              Submit
+              Sign Up
             </button>
           </div>
         </div>
       </form>
+      <img
+        className="signup-img"
+        src="https://www.itl.cat/pngfile/big/130-1302719_wallpaper-pokemon.jpg"
+      ></img>
     </div>
   );
 };
@@ -155,6 +157,7 @@ const mapDispatch = (dispatch) => {
       } else {
         const firstName = evt.target.firstName.value;
         const lastName = evt.target.lastName.value;
+        // const address = evt.target.address.value
         dispatch(authenticate(email, password, formName, firstName, lastName));
       }
     },

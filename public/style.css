@@ -32,17 +32,33 @@ form div {
   background-color: white;
 }
 
-.Auth-form-container {
+.login-form-container, .signup-form-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
+  background-color: #e0e0e0;
+
 }
 
+
+.text-center{
+  cursor: pointer;
+}
+.switch{
+  color:#227ee7;
+  margin-left: 10px;
+}
+.switch:hover{
+  color: black;
+}
 .Auth-form {
-  width: 420px;
-  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+  z-index: 2;
+  position: absolute;
+  left:20%;
+  width: 500px;
+  box-shadow: rgb(0 0 0 / 100%) 1px 1px 10px;
   padding-top: 30px;
   padding-bottom: 20px;
   border-radius: 8px;
@@ -67,3 +83,69 @@ label {
   font-weight: 600;
   color: rgb(34, 34, 34);
 }
+
+.loginbtn {
+	border-radius: 20px;
+	border: 1px solid #fa9a24;
+	background-color: #fa9a24;
+  width: 260px;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+  cursor: pointer;
+}
+
+.loginbtn:active {
+	transform: scale(0.95);
+}
+
+.loginbtn:focus {
+	outline: none;
+}
+
+.loginbtn.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
+}
+
+input{
+  width: 180%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: black  ;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  background: transparent;
+}
+.signup-img {
+  height: 670px;
+  width: 880px;
+  position: absolute;
+  left:10%;
+  z-index: 1;
+  box-shadow: rgb(0 0 0 / 200%) 1px 1px 10px;
+  padding-top: 110px;
+  padding-bottom: 20px;
+  padding-left: 500px;
+  border-radius: 8px;
+  background-color: #dc8a58;
+  
+}
+.login-img{ 
+  height: 670px;
+  width: 880px;
+  position: absolute;
+  left:10%;
+  z-index: 1;
+  box-shadow: rgb(0 0 0 / 200%) 1px 1px 10px;
+  padding-top: 110px;
+  padding-bottom: 20px;
+  padding-left: 500px;
+  border-radius: 8px;
+  background-color: #6aa7c3;}
