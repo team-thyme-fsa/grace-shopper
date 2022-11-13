@@ -121,3 +121,20 @@ button {
   background-color: #e0e0e0;
   padding: 34px 76px;
 }
+
+.all-products {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 25px;
+}
+
+.product {
+  padding: 25px;
+  display: flex;
+  flex-direction: row;
+}
+
+.product-info {
+  padding: 25px;
+}

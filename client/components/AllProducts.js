@@ -15,11 +15,11 @@ const AllProducts = (props) => {
   return (
     <div>
       <h2>Products</h2>
-      <ul>
+      <div className="all-products">
         {products.map((product) => (
           <Product product={product} key={product.id} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
