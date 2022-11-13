@@ -14,12 +14,12 @@ const AllProducts = (props) => {
 
   return (
     <div>
-      <h2>Products</h2>
-      <ul>
+      <h2>PokéMart</h2>
+      <div className="all-products">
         {products.map((product) => (
           <Product product={product} key={product.id} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
