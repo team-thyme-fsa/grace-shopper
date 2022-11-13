@@ -1,5 +1,7 @@
 body {
   font-family: sans-serif;
+  background-color: #ebebeb;
+  margin: 0;
 }
 
 a {
@@ -20,10 +22,95 @@ form div {
   display: inline-block;
 }
 
+#navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 120px;
+  justify-content: space-between;
+}
+
 #navbar h1 {
   display: inline;
 }
 
 #navbar div {
   display: inline;
+}
+
+#navigation-bar {
+  background-color: #227ee7;
+  height: 120px;
+  border-radius: 25px;
+  position: relative;
+}
+
+button {
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.button {
+  color: #ebebeb;
+  font-size: 16px;
+  padding: 14px 28px;
+  box-shadow: 0 9px #999;
+}
+
+.button:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.yellow-orange-color-wheel {
+  background-color: #fa9a24;
+  border: 2px solid #fa9a24;
+}
+
+.inchworm {
+  background-color: #a3e84a;
+  border: 2px solid #a3e84a;
+}
+
+.btn {
+  border: 2px solid #061623;
+  background-color: #227ee7;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #ebebeb;
+}
+
+.pokéballs {
+  border-color: #fa9a24;
+}
+
+.pokéballs:hover {
+  background-color: #fa9a24;
+}
+
+.pokéballs:active {
+  background-color: #f08605;
+  border-color: #f08605;
+}
+
+.login {
+  border-color: #a3e84a;
+}
+
+.login:hover {
+  background-color: #a3e84a;
+  color: #061623;
+}
+
+.login:active {
+  background-color: #91e326;
+  border-color: #91e326;
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
