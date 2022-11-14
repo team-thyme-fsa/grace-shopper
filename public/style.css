@@ -113,17 +113,12 @@ label {
   cursor: pointer;
 }
 
-.loginbtn,.signupbtn:active {
+.loginbtn:active, .signupbtn:active {
 	transform: scale(0.95);
 }
 
-.loginbtn,.signupbtn:focus {
+.loginbtn:focus, .signupbtn:active {
 	outline: none;
-}
-
-.loginbtn.ghost {
-	background-color: transparent;
-	border-color: #FFFFFF;
 }
 
 input.user-box{
@@ -138,7 +133,7 @@ input.user-box{
   background: transparent;
 }
 .user-box input:hover{
-  background-color: rgb(241, 241, 241);
+  background-color: rgb(237, 237, 237);
 }
 
 .signup-img {
