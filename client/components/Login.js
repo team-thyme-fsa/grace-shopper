@@ -7,7 +7,8 @@ const Auth = (props) => {
 
   let [authMode, setAuthMode] = useState('login');
 
-  const changeAuthMode = () => {
+  const changeAuthMode = (evt) => {
+    // evt.preventDefault();
     setAuthMode(authMode === 'login' ? 'signup' : 'login');
   };
   if (authMode === 'login') {
@@ -18,9 +19,9 @@ const Auth = (props) => {
             <h3 className="Auth-form-title">Log In</h3>
             <div className="text-center">
               Not registered yet?
-              <Link className="switch" to="/signup" onClick={changeAuthMode}>
+              <span className="switch" to="/signup" onClick={changeAuthMode}>
                 Become a Trainer
-              </Link>
+              </span>
             </div>
             <div className="user-box">
               <label>Email</label>
@@ -58,14 +59,14 @@ const Auth = (props) => {
 
   return (
     <div className="signup-form-container">
-      <form className="Auth-form">
+      <form className="Auth-form" onSubmit={handleSubmit} name={name}>
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign Up</h3>
           <div className="text-center">
             Already registered?
-            <Link className="switch" to="/login" onClick={changeAuthMode}>
+            <span className="switch" to="/login" onClick={changeAuthMode}>
               Log In
-            </Link>
+            </span>
           </div>
           <div className="user-box">
             <label>First Name</label>
@@ -113,7 +114,7 @@ const Auth = (props) => {
             <button type="submit" className="signupbtn">
               Sign Up
             </button>
-            <input type="reset" value="reset"></input>
+            <input type="reset" className="resetbtn" value="reset"></input>
           </div>
         </div>
       </form>

@@ -28,9 +28,6 @@ form div {
   display: inline;
 }
 
-.App {
-  background-color: white;
-}
 
 .signup-form-container {
   display: flex;
@@ -137,11 +134,11 @@ label {
   cursor: pointer;
 }
 
-.loginbtn:active, .signupbtn:active {
+.loginbtn:active, .signupbtn:active, .resetbtn:active {
 	transform: scale(0.95);
 }
 
-.loginbtn:focus, .signupbtn:active {
+.loginbtn:focus, .signupbtn:focus, .resetbtn:focus {
 	outline: none;
 }
 
@@ -176,5 +173,5 @@ input.user-box{
   background: transparent;
 }
 .user-box input:hover{
-  background-color: rgb(237, 237, 237);
+  background-color: rgb(242, 242, 242);
 }
