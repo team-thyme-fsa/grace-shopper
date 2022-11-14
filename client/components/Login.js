@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { authenticate } from '../store';
-
+import { Link } from 'react-router-dom';
 const Auth = (props) => {
   const { name, handleSubmit, error } = props;
 
@@ -18,9 +18,9 @@ const Auth = (props) => {
             <h3 className="Auth-form-title">Log In</h3>
             <div className="text-center">
               Not registered yet?
-              <span className="switch" onClick={changeAuthMode}>
+              <Link className="switch" to="/signup" onClick={changeAuthMode}>
                 Become a Trainer
-              </span>
+              </Link>
             </div>
             <div className="user-box">
               <label>Email</label>
@@ -52,10 +52,6 @@ const Auth = (props) => {
           </div>
           {error && error.response && <div> {error.response.data} </div>}
         </form>
-        <img
-          src="https://wallpaper.dog/large/10810019.jpg"
-          className="login-img"
-        ></img>
       </div>
     );
   }
@@ -67,9 +63,9 @@ const Auth = (props) => {
           <h3 className="Auth-form-title">Sign Up</h3>
           <div className="text-center">
             Already registered?
-            <span className="switch" onClick={changeAuthMode}>
+            <Link className="switch" to="/login" onClick={changeAuthMode}>
               Log In
-            </span>
+            </Link>
           </div>
           <div className="user-box">
             <label>First Name</label>
@@ -117,13 +113,10 @@ const Auth = (props) => {
             <button type="submit" className="signupbtn">
               Sign Up
             </button>
+            <input type="reset" value="reset"></input>
           </div>
         </div>
       </form>
-      <img
-        className="signup-img"
-        src="https://www.itl.cat/pngfile/big/130-1302719_wallpaper-pokemon.jpg"
-      ></img>
     </div>
   );
 };
@@ -151,12 +144,11 @@ const mapDispatch = (dispatch) => {
       if (formName === 'login') {
         dispatch(authenticate(email, password, formName));
       } else {
-        let firstName = evt.target.firstName.value;
-        let lastName = evt.target.lastName.value;
-        let address = evt.target.address.value;
+        const firstName = evt.target.firstName.value;
+        const lastName = evt.target.lastName.value;
+        const address = evt.target.address.value;
         dispatch(
           authenticate(email, password, formName, firstName, lastName, address),
-          (firstName = ''),
         );
       }
     },
