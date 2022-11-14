@@ -217,6 +217,7 @@ button {
 .inchworm {
   background-color: #a3e84a;
   border: 2px solid #a3e84a;
+  color: #061623;
 }
 
 .btn {
@@ -279,10 +280,12 @@ button {
   padding: 25px;
   display: flex;
   flex-direction: row;
+  width: 486.203px;
+  height: 160px;
 }
 
 .product-info {
-  padding: 0px 25px 25px 25px;
+  padding: 0px 0px 25px 25px;
 }
 
 .price {
