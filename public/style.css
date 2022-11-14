@@ -113,11 +113,11 @@ label {
   cursor: pointer;
 }
 
-.loginbtn:active {
+.loginbtn,.signupbtn:active {
 	transform: scale(0.95);
 }
 
-.loginbtn:focus {
+.loginbtn,.signupbtn:focus {
 	outline: none;
 }
 
@@ -137,6 +137,10 @@ input.user-box{
   outline: none;
   background: transparent;
 }
+.user-box input:hover{
+  background-color: rgb(241, 241, 241);
+}
+
 .signup-img {
   height: 670px;
   width: 880px;
@@ -163,3 +167,6 @@ input.user-box{
   padding-left: 500px;
   border-radius: 8px;
   background-color: #6aa7c3;}
+
+
+

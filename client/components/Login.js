@@ -151,11 +151,12 @@ const mapDispatch = (dispatch) => {
       if (formName === 'login') {
         dispatch(authenticate(email, password, formName));
       } else {
-        const firstName = evt.target.firstName.value;
-        const lastName = evt.target.lastName.value;
-        const address = evt.target.address.value;
+        let firstName = evt.target.firstName.value;
+        let lastName = evt.target.lastName.value;
+        let address = evt.target.address.value;
         dispatch(
           authenticate(email, password, formName, firstName, lastName, address),
+          (firstName = ''),
         );
       }
     },
