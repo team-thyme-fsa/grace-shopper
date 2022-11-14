@@ -38,6 +38,153 @@ form div {
   display: inline;
 }
 
+.signup-form-container {
+  display: flex;
+  box-shadow: rgb(0 0 0 / 200%) 1px 1px 10px;
+  border-radius: 8px;
+  margin-top: 2.8%;
+  padding-bottom: 13%;
+  margin-bottom: 2.8%;
+  margin-left: 15vh;
+  margin-right: 15vh;
+  background-color: #f08651;
+  background-size:60%;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-image: url('https://i.pinimg.com/originals/d5/85/d5/d585d520568c76cc4172eae61661a8a3.png');
+}
+
+.login-form-container{
+  display: flex;
+  box-shadow: rgb(0 0 0 / 200%) 1px 1px 10px;
+  border-radius: 8px;
+  margin-top: 2.8%;
+  margin-bottom: 2.8%;
+  padding-bottom: 10vh;
+  margin-left: 15vh;
+  margin-right: 15vh;
+  padding-bottom: 20%;
+  background-color: #6aa7c3;
+  background-size:60%;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-image: url("https://wallpaper.dog/large/10810019.jpg");
+}
+
+
+.text-center{
+  cursor: pointer;
+}
+.switch{
+  color:#227ee7;
+  margin-left: 10px;
+}
+.switch:hover{
+  color: black;
+}
+.Auth-form {
+  display: flex;
+  position: relative;
+  top: 13vh;
+  margin-left: 20vh;
+  width: 500px;
+  box-shadow: rgb(0 0 0 / 100%) 1px 1px 10px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.Auth-form-content {
+  padding-left: 12%;
+  padding-right: 12%;
+}
+
+.Auth-form-title {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 24px;
+  color: rgb(34, 34, 34);
+  font-weight: 800;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(34, 34, 34);
+}
+
+.loginbtn {
+	border-radius: 20px;
+	border: 1px solid #fa9a24;
+	background-color: #fa9a24;
+  width: 300px;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+  cursor: pointer;
+}
+.signupbtn{
+	border-radius: 20px;
+	border: 1px solid #227ee7;
+	background-color: #227ee7;
+  width: 300px;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+  cursor: pointer;
+}
+
+.loginbtn:active, .signupbtn:active, .resetbtn:active {
+	transform: scale(0.95);
+}
+
+.loginbtn:focus, .signupbtn:focus, .resetbtn:focus {
+	outline: none;
+}
+
+input[type=reset]{
+  margin-top: 10px;
+   background-color: orange;
+   border-radius: 20px;
+   border: 1px solid #fa9a24;
+   background-color: #fa9a24;
+   width: 300px;
+   color: #FFFFFF;
+   font-size: 12px;
+   font-weight: bold;
+   padding: 12px 45px;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   transition: transform 80ms ease-in;
+   cursor: pointer;
+  
+}
+
+input.user-box{
+  display: flex;
+  width: 180%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: black  ;
+  margin-bottom: 5px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  background: transparent;
+}
+.user-box input:hover{
+  background-color: rgb(242, 242, 242);
+}
+
 #navigation-bar {
   background-color: #227ee7;
   height: 120px;
