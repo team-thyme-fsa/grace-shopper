@@ -21,7 +21,11 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
         </Link>
 
         <Link to="/pokéballs">
-          <button type="button" name="pokéballs" className="btn pokéballs">
+          <button
+            type="button"
+            name="pokéballs"
+            className="button yellow-orange-color-wheel"
+          >
             POKÉBALLS
           </button>
         </Link>
@@ -53,7 +57,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           <div>
             {/* The navbar will show this link before you log in */}
             <Link to="/login">
-              <button type="button" name="login" className="btn login">
+              <button type="button" name="login" className="button inchworm">
                 LOGIN
               </button>
             </Link>
