@@ -39,7 +39,7 @@ form div {
   width: 100vw;
   height: 100vh;
   background-color: #e0e0e0;
-
+  /* background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/416e0746-bae7-42b0-9291-df457f485ee7/derwvdb-5c96b4d5-9a24-4057-a5d0-f9fb1f58e343.png/v1/fill/w_607,h_1315,q_70,strp/pokemon_grass_texture_wallpaper_by_crystaelart_derwvdb-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTc5MiIsInBhdGgiOiJcL2ZcLzQxNmUwNzQ2LWJhZTctNDJiMC05MjkxLWRmNDU3ZjQ4NWVlN1wvZGVyd3ZkYi01Yzk2YjRkNS05YTI0LTQwNTctYTVkMC1mOWZiMWY1OGUzNDMucG5nIiwid2lkdGgiOiI8PTgyOCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.svb8lFIp3pCmZZpN3kf3jK9YuoE3y5OSvShsnZtNsSA'); */
 }
 
 
@@ -88,7 +88,21 @@ label {
 	border-radius: 20px;
 	border: 1px solid #fa9a24;
 	background-color: #fa9a24;
-  width: 260px;
+  width: 300px;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+  cursor: pointer;
+}
+.signupbtn{
+	border-radius: 20px;
+	border: 1px solid #227ee7;
+	background-color: #227ee7;
+  width: 300px;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -112,12 +126,12 @@ label {
 	border-color: #FFFFFF;
 }
 
-input{
+input.user-box{
   width: 180%;
   padding: 10px 0;
   font-size: 16px;
   color: black  ;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   border: none;
   border-bottom: 1px solid black;
   outline: none;

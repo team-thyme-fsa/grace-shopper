@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { authenticate } from '../store';
 
 const Auth = (props) => {
-  const { name, displayName, handleSubmit, error } = props;
+  const { name, handleSubmit, error } = props;
 
   let [authMode, setAuthMode] = useState('login');
 
@@ -19,7 +19,7 @@ const Auth = (props) => {
             <div className="text-center">
               Not registered yet?
               <span className="switch" onClick={changeAuthMode}>
-                Sign Up
+                Become a Trainer
               </span>
             </div>
             <div className="user-box">
@@ -59,14 +59,14 @@ const Auth = (props) => {
       </div>
     );
   }
-  //
+
   return (
     <div className="signup-form-container">
       <form className="Auth-form">
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign Up</h3>
           <div className="text-center">
-            Already registered?{' '}
+            Already registered?
             <span className="switch" onClick={changeAuthMode}>
               Log In
             </span>
@@ -109,16 +109,12 @@ const Auth = (props) => {
               required
             />
           </div>
-          {/* <div className="user-box">
-            <label>Address</label>
-            <input
-              name="address"
-              className="user-box"
-              placeholder="Address"
-            />
-          </div> */}
           <div className="user-box">
-            <button type="submit" className="loginbtn">
+            <label>Address</label>
+            <input name="address" className="user-box" placeholder="Address" />
+          </div>
+          <div>
+            <button type="submit" className="signupbtn">
               Sign Up
             </button>
           </div>
@@ -157,8 +153,10 @@ const mapDispatch = (dispatch) => {
       } else {
         const firstName = evt.target.firstName.value;
         const lastName = evt.target.lastName.value;
-        // const address = evt.target.address.value
-        dispatch(authenticate(email, password, formName, firstName, lastName));
+        const address = evt.target.address.value;
+        dispatch(
+          authenticate(email, password, formName, firstName, lastName, address),
+        );
       }
     },
   };
