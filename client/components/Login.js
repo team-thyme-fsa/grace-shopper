@@ -73,71 +73,75 @@ const Auth = (props) => {
         </form>
       </div>
     );
+  } else {
+    return (
+      <div className="signup-form-container">
+        <form className="Auth-form" onSubmit={handleInputChange} name={name}>
+          <div className="Auth-form-content">
+            <h3 className="Auth-form-title">Sign Up</h3>
+            <div className="text-center">
+              Already registered?
+              <span className="switch" to="/login" onClick={changeAuthMode}>
+                Log In
+              </span>
+            </div>
+            <div className="user-box">
+              <label>First Name</label>
+              <input
+                name="firstName"
+                className="user-box"
+                placeholder="e.g Jane"
+                required
+              />
+            </div>
+            <div className="user-box">
+              <label>Last Name</label>
+              <input
+                name="lastName"
+                className="user-box"
+                placeholder="e.g Doe"
+                required
+              />
+            </div>
+            <div className="user-box">
+              <label>Email address</label>
+              <input
+                name="email"
+                type="email"
+                className="user-box"
+                placeholder="Email"
+                required
+              />
+            </div>
+            <div className="user-box">
+              <label>Password</label>
+              <input
+                name="password"
+                type="password"
+                className="user-box"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <div className="user-box">
+              <label>Address</label>
+              <input
+                name="address"
+                className="user-box"
+                placeholder="Address"
+              />
+            </div>
+            <div>
+              <button type="submit" className="signupbtn">
+                Sign Up
+              </button>
+              <input type="reset" className="resetbtn" value="reset"></input>
+            </div>
+          </div>
+        </form>
+      </div>
+    );
   }
-
-  return (
-    <div className="signup-form-container">
-      <form className="Auth-form" onSubmit={handleInputChange} name={name}>
-        <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Sign Up</h3>
-          <div className="text-center">
-            Already registered?
-            <span className="switch" to="/login" onClick={changeAuthMode}>
-              Log In
-            </span>
-          </div>
-          <div className="user-box">
-            <label>First Name</label>
-            <input
-              name="firstName"
-              className="user-box"
-              placeholder="e.g Jane"
-              required
-            />
-          </div>
-          <div className="user-box">
-            <label>Last Name</label>
-            <input
-              name="lastName"
-              className="user-box"
-              placeholder="e.g Doe"
-              required
-            />
-          </div>
-          <div className="user-box">
-            <label>Email address</label>
-            <input
-              name="email"
-              type="email"
-              className="user-box"
-              placeholder="Email"
-              required
-            />
-          </div>
-          <div className="user-box">
-            <label>Password</label>
-            <input
-              name="password"
-              type="password"
-              className="user-box"
-              placeholder="Password"
-              required
-            />
-          </div>
-          <div className="user-box">
-            <label>Address</label>
-            <input name="address" className="user-box" placeholder="Address" />
-          </div>
-          <div>
-            <button type="submit" className="signupbtn">
-              Sign Up
-            </button>
-            <input type="reset" className="resetbtn" value="reset"></input>
-          </div>
-        </div>
-      </form>
-    </div>
-  );
 };
 
 const mapLogin = (state) => {
