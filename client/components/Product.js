@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const Product = (props) => {
   const { name, price, imageUrl } = props.product;
 
@@ -19,13 +19,15 @@ const Product = (props) => {
 
           <div id="details-button">
             {/* TODO(Carina): add onClick */}
-            <button
-              type="button"
-              name="details"
-              className="details-button outl"
-            >
-              DETAILS
-            </button>
+            <Link to={'/products/:id'}>
+              <button
+                type="button"
+                name="details"
+                className="details-button outl"
+              >
+                DETAILS
+              </button>
+            </Link>
           </div>
         </div>
       </div>
