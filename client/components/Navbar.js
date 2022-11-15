@@ -50,7 +50,9 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           <div>
             {/* The navbar will show this link after you log in */}
             <a href="#" onClick={handleClick}>
-              LOGOUT
+              <button type="button" name="logout" className="button inchworm">
+                LOGOUT
+              </button>
             </a>
           </div>
         ) : (
