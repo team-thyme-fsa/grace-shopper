@@ -4,21 +4,22 @@ import { authenticate } from '../store';
 import { Link } from 'react-router-dom';
 const Auth = (props) => {
   const { name, handleSubmit, error, loginAuth, signupAuth } = props;
-  console.log(props);
-  console.log('hello??');
 
   const handleLogin = (event) => {
     event.preventDefault();
-    const formName = event.target.name;
+    // const formName = event.target.name;
     const email = event.target.email.value;
     const password = event.target.password.value;
-    loginAuth(email, password, formName);
+    loginAuth(email, password, 'login');
   };
 
   const handleSignUp = (event) => {
-    const formName = event.target.name;
     const email = event.target.email.value;
     const password = event.target.password.value;
+    const firstName = event.target.firstName.value;
+    const lastName = event.target.lastName.value;
+    const address = event.target.address.value;
+    signupAuth(email, password, firstName, lastName, address, 'signup');
   };
 
   let [authMode, setAuthMode] = useState('login');
@@ -45,7 +46,6 @@ const Auth = (props) => {
                 name="email"
                 type="email"
                 className="user-box"
-                onChange={() => console.log('test')}
                 placeholder="Enter email"
                 required
               />
@@ -56,7 +56,6 @@ const Auth = (props) => {
                 name="password"
                 type="password"
                 className="user-box"
-                onChange={console.log('h')}
                 placeholder="Enter password"
                 required
               />
@@ -73,75 +72,71 @@ const Auth = (props) => {
         </form>
       </div>
     );
-  } else {
-    return (
-      <div className="signup-form-container">
-        <form className="Auth-form" onSubmit={handleInputChange} name={name}>
-          <div className="Auth-form-content">
-            <h3 className="Auth-form-title">Sign Up</h3>
-            <div className="text-center">
-              Already registered?
-              <span className="switch" to="/login" onClick={changeAuthMode}>
-                Log In
-              </span>
-            </div>
-            <div className="user-box">
-              <label>First Name</label>
-              <input
-                name="firstName"
-                className="user-box"
-                placeholder="e.g Jane"
-                required
-              />
-            </div>
-            <div className="user-box">
-              <label>Last Name</label>
-              <input
-                name="lastName"
-                className="user-box"
-                placeholder="e.g Doe"
-                required
-              />
-            </div>
-            <div className="user-box">
-              <label>Email address</label>
-              <input
-                name="email"
-                type="email"
-                className="user-box"
-                placeholder="Email"
-                required
-              />
-            </div>
-            <div className="user-box">
-              <label>Password</label>
-              <input
-                name="password"
-                type="password"
-                className="user-box"
-                placeholder="Password"
-                required
-              />
-            </div>
-            <div className="user-box">
-              <label>Address</label>
-              <input
-                name="address"
-                className="user-box"
-                placeholder="Address"
-              />
-            </div>
-            <div>
-              <button type="submit" className="signupbtn">
-                Sign Up
-              </button>
-              <input type="reset" className="resetbtn" value="reset"></input>
-            </div>
-          </div>
-        </form>
-      </div>
-    );
   }
+
+  return (
+    <div className="signup-form-container">
+      <form className="Auth-form" onSubmit={handleSignUp} name={name}>
+        <div className="Auth-form-content">
+          <h3 className="Auth-form-title">Sign Up</h3>
+          <div className="text-center">
+            Already registered?
+            <span className="switch" to="/login" onClick={changeAuthMode}>
+              Log In
+            </span>
+          </div>
+          <div className="user-box">
+            <label>First Name</label>
+            <input
+              name="firstName"
+              className="user-box"
+              placeholder="e.g Jane"
+              required
+            />
+          </div>
+          <div className="user-box">
+            <label>Last Name</label>
+            <input
+              name="lastName"
+              className="user-box"
+              placeholder="e.g Doe"
+              required
+            />
+          </div>
+          <div className="user-box">
+            <label>Email address</label>
+            <input
+              name="email"
+              type="email"
+              className="user-box"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div className="user-box">
+            <label>Password</label>
+            <input
+              name="password"
+              type="password"
+              className="user-box"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div className="user-box">
+            <label>Address</label>
+            <input name="address" className="user-box" placeholder="Address" />
+          </div>
+          <div>
+            <button type="submit" className="signupbtn">
+              Sign Up
+            </button>
+            <input type="reset" className="resetbtn" value="reset"></input>
+          </div>
+        </div>
+      </form>
+    </div>
+  );
 };
 
 const mapLogin = (state) => {
@@ -160,10 +155,10 @@ const mapSignup = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     loginAuth: (email, password, formName) =>
-      dispatch(authenticate(email, password, formName)),
-    signupAuth: (email, password, formName, firstName, lastName, address) =>
+      dispatch(authenticate(email, password, null, null, null, formName)),
+    signupAuth: (email, password, firstName, lastName, address, formName) =>
       dispatch(
-        authenticate(email, password, formName, firstName, lastName, address),
+        authenticate(email, password, firstName, lastName, address, formName),
       ),
   };
 };
