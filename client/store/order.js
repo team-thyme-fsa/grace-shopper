@@ -29,15 +29,15 @@ export const createOrder = (user) => {
 
 export const fetchOrder = (user, product) => {
   return async (dispatch) => {
-    const { data } = await axios.put('/api/addproduct', {
+    const { data } = await axios.post('/api/orders/addproduct', {
       userId: user.id,
       name: product.name,
       // Product should have quanitity property
       quantity: product.quantity,
     });
     dispatch(setOrder(data));
-  }
-}
+  };
+};
 
 export default function orderReducer(state = {}, action) {
   switch (action.type) {

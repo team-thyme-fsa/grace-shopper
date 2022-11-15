@@ -1,7 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { fetchOrder } from '../store/order';
 
 const Product = (props) => {
   const { name, price, imageUrl } = props.product;
+  const { addToOrder } = props;
+  const { user } = props;
+
+  const handleAddToCart = () => {
+    addToOrder(user, { name: name, quantity: 1 });
+  };
 
   return (
     <div className="product">
@@ -13,7 +21,11 @@ const Product = (props) => {
 
         <div className="buttons">
           {/* TODO(Carina): check button type="button" OR "submit" */}
-          <button type="button" className="add-to-cart-button otl">
+          <button
+            type="button"
+            className="add-to-cart-button otl"
+            onClick={handleAddToCart}
+          >
             ADD TO CART
           </button>
 
@@ -33,4 +45,16 @@ const Product = (props) => {
   );
 };
 
-export default Product;
+const mapState = (state) => {
+  return {
+    user: state.auth,
+  };
+};
+
+const mapDispatch = (dispatch) => {
+  return {
+    addToOrder: (user, product) => dispatch(fetchOrder(user, product)),
+  };
+};
+
+export default connect(mapState, mapDispatch)(Product);
