@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 const Product = (props) => {
-  const { name, price, imageUrl } = props.product;
+  const { name, price, imageUrl, id } = props.product;
 
   return (
     <div className="product">
@@ -19,7 +19,7 @@ const Product = (props) => {
 
           <div id="details-button">
             {/* TODO(Carina): add onClick */}
-            <Link to={'/products/:id'}>
+            <Link to={`products/${id}`}>
               <button
                 type="button"
                 name="details"
