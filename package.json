@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "build:dev": "JWT=a_secret mocha npm run build -- --watch --mode=development",
-    "seed": "JWT=a_secret mocha node script/seed.js",
+    "seed": "JWT=a_secret node script/seed.js",
     "start": "JWT=a_secret mocha node server",
     "start:dev": "JWT=a_secret mocha npm run build:dev & npm run start-server",
     "start:dev:logger": "JWT=a_secret mocha LOGGING=true npm run start:dev",
