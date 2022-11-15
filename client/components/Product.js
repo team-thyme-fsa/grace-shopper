@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchOrder } from '../store/order';
+import { Link } from 'react-router-dom';
 
 const Product = (props) => {
-  const { name, price, imageUrl } = props.product;
+  const { name, price, imageUrl, id } = props.product;
   const { addToOrder } = props;
   const { user } = props;
 
