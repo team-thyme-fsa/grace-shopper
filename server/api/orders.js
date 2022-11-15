@@ -24,8 +24,8 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-// PUT /api/orders/addproduct
-router.put('/addproduct', async (req, res, next) => {
+// POST /api/orders/addproduct
+router.post('/addproduct', async (req, res, next) => {
   try {
     // find user and find or create order
     const user = await User.findByPk(req.body.userId);
