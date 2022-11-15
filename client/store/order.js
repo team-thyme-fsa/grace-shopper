@@ -27,15 +27,42 @@ export const createOrder = (user) => {
   };
 };
 
-export const fetchOrder = (user, product) => {
+export const fetchOrder = (user, product, quantity) => {
   return async (dispatch) => {
-    const { data } = await axios.put('/api/addproduct', {
-      userId: user.id,
-      name: product.name,
-      // Product should have quanitity property
-      quantity: product.quantity,
-    });
-    dispatch(setOrder(data));
+    if (user) {
+      const { data } = await axios.put('/api/addproduct', {
+        userId: user.id,
+        name: product.name,
+        // Product should have quanitity property
+        quantity: quantity,
+      });
+      dispatch(setOrder(data));
+    } else {
+      let cart = window.localStorage.getItem('cart') ? JSON.parse(window.localStorage.getItem('cart')) : {products: []}
+
+      let duplicateItem = false
+      for (let curProd of cart.products) {
+        if(curProd.id === product.id) {
+          duplicateItem = true
+          curProd.quantity += Number(quantity);
+          break
+        }
+      }
+
+      if(!duplicateItem) {
+        cart.products.push({ ...product, quanity: Number(quantity) });
+      }
+      // else {
+      //   for (let curProd of cart.products) {
+      //     if(curProd.id === product.id) {
+        // curProd.quantity += Number(quantity);
+      //     }
+      //   }
+      // }
+
+      window.localStorage.setItem('cart', JSON.stringify(cart));
+      dispatch(setOrder(cart.products));
+    }
   }
 }
 
