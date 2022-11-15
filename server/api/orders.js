@@ -34,6 +34,7 @@ router.post('/addproduct', async (req, res, next) => {
         userId: user.id,
         shippingInfo: user.address,
         billingInfo: user.address,
+        completed: false
       },
     });
     const orderValues = order.dataValues;
@@ -48,12 +49,11 @@ router.post('/addproduct', async (req, res, next) => {
       await orderProducts.update({
         quantity: orderProducts.quantity + req.body.quantity,
       });
-      res.send(orderProducts);
     } else {
       // if order product created update its price
       await orderProducts.update({ price: req.body.price });
-      res.send(orderProducts);
     }
+    res.send(await Order_Products.findAll({where: {orderId: orderValues.id}}));
   } catch (err) {
     next(err);
   }
