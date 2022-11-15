@@ -166,7 +166,7 @@ input[type=reset]{
    text-transform: uppercase;
    transition: transform 80ms ease-in;
    cursor: pointer;
-  
+
 }
 
 input.user-box{
@@ -282,6 +282,12 @@ button {
   flex-direction: row;
   width: 486.203px;
   height: 160px;
+}
+
+.single-product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .product-info {

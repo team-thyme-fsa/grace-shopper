@@ -14,7 +14,7 @@ const SingleProduct = (props) => {
   }, []);
 
   return (
-    <div className='product'>
+    <div className='single-product'>
       <img src={imageUrl} className='image' />
       <div className='product-info'>
         <h3>{name}</h3>
