@@ -19,7 +19,7 @@ const Product = (props) => {
 
           <div id="details-button">
             {/* TODO(Carina): add onClick */}
-            <Link to={`products/${id}`}>
+            <Link to={`/products/${id}`}>
               <button
                 type="button"
                 name="details"
