@@ -264,3 +264,33 @@ input.user-box{
     line-height: 1.8;
   }
 } */
+
+
+.intro-menu-container{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  padding: 30px;
+}
+.intro-menu{
+  padding:10px
+}
+.mart-img{
+  border: 10px;
+  border-radius: 8px;
+}
+.about-us-container, .intro-title{
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  margin: 30px;
+}
+.about-us-content{
+  padding-left: 5%;
+  padding-right: 5%;
+}
+.about-us-title{
+  padding-bottom: 10px;
+}
