@@ -42,7 +42,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
       </div>
 
       <div className="logo">
-        <img src="Logo.png" alt="PokéMart logo" width="90px" height="90px" />
+        <img src="/Logo.png" alt="PokéMart logo" width="90px" height="90px" />
       </div>
 
       <div>

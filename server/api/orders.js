@@ -1,8 +1,7 @@
 const express = require('express');
 const {
-  models: { Order, Order_Products, Product },
+  models: { Order, Order_Products, Product, User },
 } = require('../db');
-const User = require('../db/models/Users');
 
 const router = express.Router();
 
@@ -14,6 +13,17 @@ router.get('/', async (req, res, next) => {
     next(err);
   }
 });
+
+// GET /api/orders/:id
+router.get('/:id', async (req, res, next) => {
+  try {
+    const order = await Order.findOne({ where: { userId: req.params.id, completed: false } })
+    console.log(order)
+    res.send(await Order_Products.findAll({where: {orderId: order.id}}))
+  } catch (err) {
+    next(err)
+  }
+})
 
 // POST /api/orders
 router.post('/', async (req, res, next) => {
@@ -28,6 +38,7 @@ router.post('/', async (req, res, next) => {
 router.post('/addproduct', async (req, res, next) => {
   try {
     // find user and find or create order
+    console.log(req.body)
     const user = await User.findByPk(req.body.userId);
     const [order, create] = await Order.findOrCreate({
       where: {
@@ -60,5 +71,43 @@ router.post('/addproduct', async (req, res, next) => {
     next(err);
   }
 });
+
+// PUT /api/orders/:id
+router.put('/:id', async (req, res, next) => {
+  try {
+    const order = await Order.findOne({ where: { userId: req.params.id, completed: false}});
+    const product = await Product.findByPk(req.body.productId)
+    const orderProduct = await Order_Products.findOne({
+      where: {
+        productId: product.id,
+        orderId: order.id,
+      }
+    })
+    await orderProduct.update({
+      quantity: req.body.quantity,
+    })
+    res.send(await Order_Products.findAll({where: {orderId: order.id}}))
+  } catch (err) {
+    next(err)
+  }
+})
+
+// DELETE /api/orders/:id
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const order = await Order.findOne({ where: { userId: req.params.id, completed: false}});
+    const product = await Product.findByPk(req.body.productId)
+    const orderProduct = await Order_Products.findOne({
+      where: {
+        productId: product.id,
+        orderId: order.id,
+      }
+    })
+    await orderProduct.destroy();
+    res.send(await Order_Products.findAll({where: {orderId: order.id}}))
+  } catch (err) {
+    next(err);
+  }
+})
 
 module.exports = router;

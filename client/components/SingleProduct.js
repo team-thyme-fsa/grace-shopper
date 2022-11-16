@@ -25,7 +25,7 @@ const SingleProduct = (props) => {
       <img src={imageUrl} className='image' />
       <div className='product-info'>
         <h3>{name}</h3>
-          <img src="Pokémon Dollar.png" alt="Pokémon dollar sign" width="12px" />
+          <img src="/Pokémon Dollar.png" alt="Pokémon dollar sign" width="12px" />
           <p className="price">{price}</p>
           <div>
             <p>{description}</p>
