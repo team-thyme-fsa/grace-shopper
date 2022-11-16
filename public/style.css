@@ -281,7 +281,7 @@ input.user-box{
   border: 10px;
   border-radius: 8px;
 }
-.about-us-container, .intro-title{
+.about-us-container, .intro-title, .guide-title{
   display: flex;
   justify-content: center;
   padding: 30px;
@@ -293,4 +293,19 @@ input.user-box{
 }
 .about-us-title{
   padding-bottom: 10px;
+}
+.guide-img{
+  margin: 20px 30px 20px 30px;
+
+}
+.guide-content{
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+  margin: 20px 30px 20px 30px;
+
+}
+
+p{
+  padding: 4%;
 }
