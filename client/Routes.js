@@ -6,6 +6,7 @@ import Home from './components/Home';
 import AllProducts from './components/AllProducts';
 import SingleProduct from './components/SingleProduct';
 import AllMedicine from './components/AllMedicine';
+import AllPokeballs from './components/AllPokeballs';
 import { me } from './store';
 
 /**
@@ -30,6 +31,7 @@ class Routes extends Component {
             <Route exact path="/" component={AllProducts} />
             <Route path="/products/:id" component={SingleProduct} />
             <Route exact path="/medicine" component={AllMedicine} />
+            <Route exact path="/pokeballs" component={AllPokeballs} />
           </Switch>
         )}
       </div>
