@@ -9,7 +9,7 @@ const Product = (props) => {
   const { user } = props;
 
   const handleAddToCart = () => {
-    addToOrder(user, { id: id, name: name, quantity: 1, price: price });
+    addToOrder(user, { id: id, name: name, quantity: 1, price: price, imageUrl: imageUrl });
   };
 
   return (

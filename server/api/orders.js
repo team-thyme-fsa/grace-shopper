@@ -45,7 +45,6 @@ router.post('/addproduct', async (req, res, next) => {
       where: { productId: product.id, orderId: orderValues.id },
     });
     // if order product exists update quantity
-    console.log(req.body.price)
     if (!created) {
       await orderProducts.update({
         quantity: orderProducts.quantity + req.body.quantity,
@@ -53,7 +52,8 @@ router.post('/addproduct', async (req, res, next) => {
     } else {
       // if order product created update its price
       console.log(req.body.price)
-      await orderProducts.update({ price: req.body.price });
+      console.log(req.body.imageUrl)
+      await orderProducts.update({ price: req.body.price, imageUrl: req.body.imageUrl });
     }
     res.send(await Order_Products.findAll({where: {orderId: orderValues.id}}));
   } catch (err) {

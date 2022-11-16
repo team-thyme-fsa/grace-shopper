@@ -13,7 +13,7 @@ const SingleProduct = (props) => {
   const { fetchProd } = props;
 
   const handleAddToCart = () => {
-    addToOrder(user, { id: Number(id), name: name, quantity: 1, price: price });
+    addToOrder(user, { id: Number(id), name: name, quantity: 1, price: price, imageUrl: imageUrl });
   }
 
   React.useEffect(() => {

@@ -21,6 +21,7 @@ export const addToCart = (user, product) => {
         name: product.name,
         quantity: product.quantity,
         price: product.price,
+        imageUrl: product.imageUrl,
       });
       dispatch(_addToCart(data));
     } else {
