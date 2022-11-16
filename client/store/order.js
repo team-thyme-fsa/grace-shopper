@@ -29,13 +29,15 @@ export const createOrder = (user) => {
 
 export const fetchOrder = (user, product, quantity) => {
   return async (dispatch) => {
-    if (user) {
-      const { data } = await axios.put('/api/addproduct', {
+    console.log('User', user.id)
+    if (user.id) {
+      const { data } = await axios.post('/api/orders/addproduct', {
         userId: user.id,
         name: product.name,
         // Product should have quanitity property
         quantity: quantity,
       });
+      console.log(data)
       dispatch(setOrder(data));
     } else {
       let cart = window.localStorage.getItem('cart') ? JSON.parse(window.localStorage.getItem('cart')) : {products: []}
