@@ -4,13 +4,13 @@ import history from '../history';
 /**
  * Action Types
  */
-const SET_ORDER = 'SET_ORDER';
+// const SET_ORDER = 'SET_ORDER';
 const CREATE_ORDER = 'CREATE_ORDER';
 
 /**
  * Action Creators
  */
-const setOrder = (order) => ({ type: SET_ORDER, order });
+// const setOrder = (order) => ({ type: SET_ORDER, order });
 const createdOrder = (order) => ({ type: CREATE_ORDER, order });
 
 /**
@@ -27,55 +27,43 @@ export const createOrder = (user) => {
   };
 };
 
-export const fetchOrder = (user, product, quantity) => {
-  return async (dispatch) => {
-    console.log('User', user.id)
-    if (user.id) {
-      const { data } = await axios.post('/api/orders/addproduct', {
-        userId: user.id,
-        name: product.name,
-        // Product should have quanitity property
-        quantity: quantity,
-      });
-      console.log(data)
-      dispatch(setOrder(data));
-    } else {
-      let cart = window.localStorage.getItem('cart') ? JSON.parse(window.localStorage.getItem('cart')) : {products: []}
+// export const fetchOrder = (user, product, quantity) => {
+//   return async (dispatch) => {
+//     console.log('User', user.id)
+//     if (user.id) {
+//       const { data } = await axios.post('/api/orders/addproduct', {
+//         userId: user.id,
+//         name: product.name,
+//         quantity: quantity,
+//       });
+//       console.log(data)
+//       dispatch(setOrder(data));
+//     } else {
+//       let cart = window.localStorage.getItem('cart') ? JSON.parse(window.localStorage.getItem('cart')) : {products: []}
 
-      let duplicateItem = false
-      for (let curProd of cart.products) {
-        if(curProd.id === product.id) {
-          duplicateItem = true
-          curProd.quantity += Number(quantity);
-          break
-        }
-      }
+//       for (let curProd of cart.products) {
+//         if(curProd.id === product.id) {
+//           curProd.quantity += Number(quantity);
+//           break
+//         } else {
+//           cart.products.push({ ...product, quantity: Number(quantity) });
+//         }
+//       }
 
-      if(!duplicateItem) {
-        cart.products.push({ ...product, quanity: Number(quantity) });
-      }
-      // else {
-      //   for (let curProd of cart.products) {
-      //     if(curProd.id === product.id) {
-        // curProd.quantity += Number(quantity);
-      //     }
-      //   }
-      // }
-
-      window.localStorage.setItem('cart', JSON.stringify(cart));
-      dispatch(setOrder(cart.products));
-    }
-  }
-}
+//       window.localStorage.setItem('cart', JSON.stringify(cart));
+//       dispatch(setOrder(cart.products));
+//     }
+//   }
+// }
 
 export default function orderReducer(state = {}, action) {
   switch (action.type) {
     case CREATE_ORDER: {
       return { ...action.order };
     }
-    case SET_ORDER: {
-      return { ...action.order };
-    }
+    // case SET_ORDER: {
+    //   return { ...action.order };
+    // }
     default:
       return state;
   }
