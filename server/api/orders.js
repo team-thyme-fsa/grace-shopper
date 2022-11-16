@@ -8,7 +8,6 @@ const router = express.Router();
 
 const requireToken = async (req, res, next) => {
   const user = await User.findByToken(req.headers.authorization);
-
   req.user = user;
   next();
 };
