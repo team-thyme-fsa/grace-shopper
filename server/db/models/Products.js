@@ -28,7 +28,7 @@ const Product = db.define('product', {
   },
   imageUrl: {
     type: Sequelize.STRING,
-    default:
+    defaultValue:
       'https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg',
   },
 });

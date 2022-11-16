@@ -1,13 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchProd } from '../store';
+import { addToCart } from '../store/cart';
 
 const SingleProduct = (props) => {
-  const { product } = props.products
-  const { name, type, description, price, imageUrl } = product
+  const { product } = props.products;
+  const { user } = props;
+  const { addToOrder } = props;
+  console.log(props)
+  const { name, type, description, price, imageUrl } = product;
   const { id } = props.match.params;
-  console.log('Product', product)
   const { fetchProd } = props;
+
+  const handleAddToCart = () => {
+    addToOrder(user, { id: Number(id), name: name, quantity: 1, price: price, imageUrl: imageUrl });
+  }
 
   React.useEffect(() => {
     fetchProd(id)
@@ -18,7 +25,7 @@ const SingleProduct = (props) => {
       <img src={imageUrl} className='image' />
       <div className='product-info'>
         <h3>{name}</h3>
-          <img src="Pokémon Dollar.png" alt="Pokémon dollar sign" width="12px" />
+          <img src="/Pokémon Dollar.png" alt="Pokémon dollar sign" width="12px" />
           <p className="price">{price}</p>
           <div>
             <p>{description}</p>
@@ -28,6 +35,7 @@ const SingleProduct = (props) => {
             <button
               type="button"
               className="add-to-cart-button otl"
+              onClick={handleAddToCart}
               >
               ADD TO CART
             </button>
@@ -50,13 +58,15 @@ const SingleProduct = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.products
+    products: state.products,
+    user: state.auth
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchProd: (id) => dispatch(fetchProd(id))
+    fetchProd: (id) => dispatch(fetchProd(id)),
+    addToOrder: (user, product) => dispatch(addToCart(user, product))
   };
 };
 
