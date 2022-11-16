@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchOrder } from '../store/order';
 import { Link } from 'react-router-dom';
 
-const Medicine = (props) => {
+const Pokeball = (props) => {
   const { name, price, imageUrl, id } = props.product;
   const { addToOrder } = props;
   const { user } = props;
@@ -58,4 +58,4 @@ const mapDispatch = (dispatch) => {
   };
 };
 
-export default connect(mapState, mapDispatch)(Medicine);
+export default connect(mapState, mapDispatch)(Pokeball);
