@@ -45,12 +45,14 @@ router.post('/addproduct', async (req, res, next) => {
       where: { productId: product.id, orderId: orderValues.id },
     });
     // if order product exists update quantity
+    console.log(req.body.price)
     if (!created) {
       await orderProducts.update({
         quantity: orderProducts.quantity + req.body.quantity,
       });
     } else {
       // if order product created update its price
+      console.log(req.body.price)
       await orderProducts.update({ price: req.body.price });
     }
     res.send(await Order_Products.findAll({where: {orderId: orderValues.id}}));
