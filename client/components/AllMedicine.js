@@ -7,10 +7,6 @@ import Medicine from './Medicine';
 const AllMedicine = (props) => {
   const { fetchAllMed } = props;
   const { products } = props.products;
-  // console.log('>>> props is', props);
-  // console.log('>>> products is', products);
-  // console.log('>>> props.products is', props.products);
-  // console.log('fetchAllMed is', fetchAllMed);
 
   React.useEffect(() => {
     fetchAllMed();
@@ -29,9 +25,8 @@ const AllMedicine = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  // console.log('>>> state is', state);
   return {
-    products: state.products,
+    products: state.medicinesReducer,
   };
 };
 
