@@ -6,8 +6,15 @@ const User = require('../db/models/Users');
 
 const router = express.Router();
 
+const requireToken = async (req, res, next) => {
+  const user = await User.findByToken(req.headers.authorization);
+
+  req.user = user;
+  next();
+};
+
 // GET /api/orders
-router.get('/', async (req, res, next) => {
+router.get('/', requireToken, async (req, res, next) => {
   try {
     res.send(await Order.findAll());
   } catch (err) {
@@ -16,7 +23,7 @@ router.get('/', async (req, res, next) => {
 });
 
 // POST /api/orders
-router.post('/', async (req, res, next) => {
+router.post('/', requireToken, async (req, res, next) => {
   try {
     res.status(201).send(await Order.create(req.body));
   } catch (err) {
@@ -25,7 +32,7 @@ router.post('/', async (req, res, next) => {
 });
 
 // POST /api/orders/addproduct
-router.post('/addproduct', async (req, res, next) => {
+router.post('/addproduct', requireToken, async (req, res, next) => {
   try {
     // find user and find or create order
     const user = await User.findByPk(req.body.userId);
@@ -34,7 +41,7 @@ router.post('/addproduct', async (req, res, next) => {
         userId: user.id,
         shippingInfo: user.address,
         billingInfo: user.address,
-        completed: false
+        completed: false,
       },
     });
     const orderValues = order.dataValues;
@@ -45,6 +52,7 @@ router.post('/addproduct', async (req, res, next) => {
       where: { productId: product.id, orderId: orderValues.id },
     });
     // if order product exists update quantity
+    console.log(req.body.price);
     if (!created) {
       await orderProducts.update({
         quantity: orderProducts.quantity + req.body.quantity,
@@ -53,7 +61,9 @@ router.post('/addproduct', async (req, res, next) => {
       // if order product created update its price
       await orderProducts.update({ price: req.body.price });
     }
-    res.send(await Order_Products.findAll({where: {orderId: orderValues.id}}));
+    res.send(
+      await Order_Products.findAll({ where: { orderId: orderValues.id } }),
+    );
   } catch (err) {
     next(err);
   }
