@@ -20,6 +20,7 @@ export const addToCart = (user, product) => {
         userId: user.id,
         name: product.name,
         quantity: product.quantity,
+        price: product.price,
       });
       dispatch(_addToCart(data));
     } else {

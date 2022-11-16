@@ -21,7 +21,11 @@ class Routes extends Component {
     return (
       <div>
         {isLoggedIn ? (
-          ''
+          <Switch>
+            <Route path="/login" component={Login} />
+            <Route exact path='/' component={AllProducts} />
+            <Route path='/products/:id' component={SingleProduct} />
+          </Switch>
         ) : (
           <Switch>
             <Route path="/login" component={Login} />
