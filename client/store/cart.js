@@ -104,7 +104,7 @@ export const removeItem = (user, product) => {
       //   product: product
       // });
       const { data } = await axios.delete(`/api/orders/${user.id}`, {
-        product: product
+        data: { product: product}
       });
       dispatch(_removeItem(data))
     }
