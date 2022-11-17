@@ -59,7 +59,6 @@ export const addToCart = (user, product) => {
           cart.products.push({ ...product });
         }
       }
-      console.log('PRODUCT', product);
       window.localStorage.setItem('cart', JSON.stringify(cart));
       dispatch(_addToCart(cart.products));
     }
@@ -77,11 +76,20 @@ export const updateQty = (user, product) => {
         imageUrl: product.imageUrl,
         productId: product.productId
       });
-      console.log(data)
       dispatch(_updateQty(data))
-    }
-  }
-}
+    } else {
+      let cart = JSON.parse(window.localStorage.getItem('cart'));
+      for (let item of cart.products) {
+        if (item.id === product.id) {
+          item.quantity = product.quantity;
+          break;
+        };
+      };
+      window.localStorage.setItem('cart', JSON.stringify(cart))
+      dispatch(_updateQty(cart.products))
+    };
+  };
+};
 
 export const fetchCart = (user) => {
   return async (dispatch) => {
@@ -99,14 +107,20 @@ export const fetchCart = (user) => {
 export const removeItem = (user, product) => {
   return async(dispatch) => {
     if(user.id) {
-      console.log(product)
-      // const { data } = await axios.delete(`/api/orders/${user.id}`, {
-      //   product: product
-      // });
       const { data } = await axios.delete(`/api/orders/${user.id}`, {
         data: { product: product}
       });
       dispatch(_removeItem(data))
+    } else {
+      let cart = JSON.parse(window.localStorage.getItem('cart'))
+      for (let i = 0; i < cart.products.length; i++) {
+        if(cart.products[i].id === product.id) {
+          cart.products.splice(i, 1)
+          break
+        }
+      }
+      window.localStorage.setItem('cart', JSON.stringify(cart))
+      dispatch(_removeItem(cart.products));
     }
   }
 }
