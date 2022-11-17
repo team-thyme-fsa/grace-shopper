@@ -8,8 +8,11 @@ import SingleProduct from './components/SingleProduct';
 import Cart from './components/Cart';
 import AllMedicine from './components/AllMedicine';
 import AllPokeballs from './components/AllPokeballs';
+import CheckoutPage from './components/CheckoutPage';
 import AdminPanel from './components/AdminPanel';
 import { me } from './store';
+import Intro from './components/Intro';
+import Guide from './components/Guide';
 
 /**
  * COMPONENT
@@ -27,21 +30,29 @@ class Routes extends Component {
         {isLoggedIn ? (
           <Switch>
             <Route path="/login" component={Login} />
+            <Route exact path="/intro" component={Intro} />
+            <Route path="/intro/guide" component={Guide} />
             <Route exact path="/" component={AllProducts} />
             <Route exact path="/medicine" component={AllMedicine} />
             <Route exact path="/pokeballs" component={AllPokeballs} />{' '}
             <Route path="/products/:id" component={SingleProduct} />
             {admin ? <Route path="/admin" component={AdminPanel} /> : ''}
             <Route path="/cart" component={Cart} />
+            <Route exact path="/medicine" component={AllMedicine} />
+            <Route exact path="/pokeballs" component={AllPokeballs} />
+            <Route exact path="/checkout" component={CheckoutPage} />
           </Switch>
         ) : (
           <Switch>
+            <Route exact path="/intro" component={Intro} />
+            <Route path="/intro/guide" component={Guide} />
             <Route path="/login" component={Login} />
             <Route path="/cart" component={Cart} />
             <Route exact path="/" component={AllProducts} />
             <Route path="/products/:id" component={SingleProduct} />
             <Route exact path="/medicine" component={AllMedicine} />
             <Route exact path="/pokeballs" component={AllPokeballs} />
+            <Route exact path="/checkout" component={CheckoutPage} />
           </Switch>
         )}
       </div>

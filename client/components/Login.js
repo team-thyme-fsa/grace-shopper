@@ -60,6 +60,7 @@ const Auth = (props) => {
                 required
               />
             </div>
+            {error && error.response && <div> {error.response.data} </div>}
             <div className="user-box">
               <button type="submit" className="loginbtn">
                 Login
@@ -68,7 +69,6 @@ const Auth = (props) => {
             <br></br>
             <br></br>
           </div>
-          {error && error.response && <div> {error.response.data} </div>}
         </form>
       </div>
     );
@@ -84,24 +84,6 @@ const Auth = (props) => {
             <span className="switch" to="/login" onClick={changeAuthMode}>
               Log In
             </span>
-          </div>
-          <div className="user-box">
-            <label>First Name</label>
-            <input
-              name="firstName"
-              className="user-box"
-              placeholder="e.g Jane"
-              required
-            />
-          </div>
-          <div className="user-box">
-            <label>Last Name</label>
-            <input
-              name="lastName"
-              className="user-box"
-              placeholder="e.g Doe"
-              required
-            />
           </div>
           <div className="user-box">
             <label>Email address</label>
@@ -124,9 +106,30 @@ const Auth = (props) => {
             />
           </div>
           <div className="user-box">
+            <label>First Name</label>
+            <input
+              name="firstName"
+              className="user-box"
+              placeholder="e.g Jane"
+              required
+            />
+          </div>
+          <div className="user-box">
+            <label>Last Name</label>
+            <input
+              name="lastName"
+              className="user-box"
+              placeholder="e.g Doe"
+              required
+            />
+          </div>
+          <div className="user-box">
             <label>Address</label>
             <input name="address" className="user-box" placeholder="Address" />
           </div>
+
+          {error && error.response && <div> {error.response.data} </div>}
+
           <div>
             <button type="submit" className="signupbtn">
               Sign Up
