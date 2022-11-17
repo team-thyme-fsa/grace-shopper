@@ -28,6 +28,8 @@ class Routes extends Component {
           <Switch>
             <Route path="/login" component={Login} />
             <Route exact path="/" component={AllProducts} />
+            <Route exact path="/medicine" component={AllMedicine} />
+            <Route exact path="/pokeballs" component={AllPokeballs} />{' '}
             <Route path="/products/:id" component={SingleProduct} />
             {admin ? <Route path="/admin" component={AdminPanel} /> : ''}
             <Route path="/cart" component={Cart} />
@@ -36,7 +38,6 @@ class Routes extends Component {
           <Switch>
             <Route path="/login" component={Login} />
             <Route path="/cart" component={Cart} />
-            {/* <Route path="/signup" component={Signup} /> */}
             <Route exact path="/" component={AllProducts} />
             <Route path="/products/:id" component={SingleProduct} />
             <Route exact path="/medicine" component={AllMedicine} />
