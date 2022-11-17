@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchOrder } from '../store/order';
+import { addToCart } from '../store/cart';
 import { Link } from 'react-router-dom';
 
 const Medicine = (props) => {
@@ -9,7 +9,13 @@ const Medicine = (props) => {
   const { user } = props;
 
   const handleAddToCart = () => {
-    addToOrder(user, { name: name, quantity: 1 });
+    addToOrder(user, {
+      id: Number(id),
+      name: name,
+      quantity: 1,
+      price: price,
+      imageUrl: imageUrl,
+    });
   };
 
   return (
@@ -54,7 +60,7 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    addToOrder: (user, product) => dispatch(fetchOrder(user, product)),
+    addToOrder: (user, product) => dispatch(addToCart(user, product)),
   };
 };
 
