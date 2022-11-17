@@ -24,7 +24,7 @@ const Footer = () => {
             Home
           </a>
           <a href="/">Products</a>
-          <a href="/">About Us</a>
+          <a href="/intro">About Us</a>
         </p>
 
         <p>Team Rockey &copy; 1996</p>

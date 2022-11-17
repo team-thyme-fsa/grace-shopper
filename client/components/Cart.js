@@ -4,14 +4,19 @@ import Item from './Item';
 import { useEffect } from 'react';
 import { fetchCart } from '../store/cart';
 import { Link } from 'react-router-dom';
+import { processOrder } from '../store/order';
 
 const Cart = (props) => {
-  const { cart, user, fetchCart } = props;
+  const { cart, user, fetchCart, processOrder } = props;
 
   useEffect(() => {
     console.log('TEST');
     fetchCart(user);
   }, []);
+
+  const handleCheckout = () => {
+    processOrder(user.id)
+  }
 
   return (
     <div>
@@ -39,7 +44,7 @@ const Cart = (props) => {
             defaultValue={user.address}
           />
           <Link to="/checkout">
-            <button type="order">Checkout</button>
+            <button type="order" onClick={handleCheckout}>Checkout</button>
           </Link>
         </form>
       </div>
@@ -57,6 +62,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchCart: (user) => dispatch(fetchCart(user)),
+    processOrder: (userId) => dispatch(processOrder(userId))
   };
 };
 

@@ -38,8 +38,6 @@ class Routes extends Component {
             <Route path="/products/:id" component={SingleProduct} />
             {admin ? <Route path="/admin" component={AdminPanel} /> : ''}
             <Route path="/cart" component={Cart} />
-            <Route exact path="/medicine" component={AllMedicine} />
-            <Route exact path="/pokeballs" component={AllPokeballs} />
             <Route exact path="/checkout" component={CheckoutPage} />
           </Switch>
         ) : (

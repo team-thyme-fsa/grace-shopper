@@ -8,9 +8,6 @@ const Intro = () => {
         <Link className="intro-menu" to="/intro">
           Introduction
         </Link>
-        <Link className="intro-menu" to="/intro/employees">
-          Employees
-        </Link>
         <Link className="intro-menu" to="/intro/guide">
           Pokeball Guide
         </Link>
