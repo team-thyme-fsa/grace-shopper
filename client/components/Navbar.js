@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
-const Navbar = ({ handleClick, isLoggedIn }) => (
+const Navbar = ({ handleClick, isLoggedIn, admin }) => (
   <div id="navigation-bar">
     <nav id="navbar">
       <div>
@@ -20,7 +20,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           </button>
         </Link>
 
-        <Link to="/pokéballs">
+        <Link to="/pokeballs">
           <button
             type="button"
             name="pokéballs"
@@ -42,7 +42,22 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
       </div>
 
       <div className="logo">
-        <img src="Logo.png" alt="PokéMart logo" width="90px" height="90px" />
+        <img src="/Logo.png" alt="PokéMart logo" width="90px" height="90px" />
+      </div>
+
+      <div>
+        {isLoggedIn && admin ? (
+          <div>
+            {/* The Admin Panel should only show when the logged in user is an Admin*/}
+            <Link to="/admin">
+              <button type="button" className="button inchworm">
+                ADMIN
+              </button>
+            </Link>
+          </div>
+        ) : (
+          ''
+        )}
       </div>
 
       <div>
@@ -84,6 +99,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
 const mapState = (state) => {
   return {
     isLoggedIn: !!state.auth.id,
+    admin: state.auth.admin,
   };
 };
 
