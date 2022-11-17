@@ -20,7 +20,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           </button>
         </Link>
 
-        <Link to="/pokéballs">
+        <Link to="/pokeballs">
           <button
             type="button"
             name="pokéballs"
