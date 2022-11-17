@@ -3,24 +3,42 @@ import { connect } from 'react-redux';
 import { authenticate } from '../store';
 import { Link } from 'react-router-dom';
 const Auth = (props) => {
-  const { name, handleSubmit, error } = props;
+  const { name, handleSubmit, error, loginAuth, signupAuth } = props;
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    // const formName = event.target.name;
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    loginAuth(email, password, 'login');
+  };
+
+  const handleSignUp = (event) => {
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    const firstName = event.target.firstName.value;
+    const lastName = event.target.lastName.value;
+    const address = event.target.address.value;
+    signupAuth(email, password, firstName, lastName, address, 'signup');
+  };
 
   let [authMode, setAuthMode] = useState('login');
 
-  const changeAuthMode = () => {
+  const changeAuthMode = (evt) => {
+    // evt.preventDefault();
     setAuthMode(authMode === 'login' ? 'signup' : 'login');
   };
   if (authMode === 'login') {
     return (
       <div className="login-form-container">
-        <form className="Auth-form" onSubmit={handleSubmit} name={name}>
+        <form className="Auth-form" onSubmit={handleLogin} name="login">
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Log In</h3>
             <div className="text-center">
               Not registered yet?
-              <Link className="switch" to="/signup" onClick={changeAuthMode}>
+              <span className="switch" to="/signup" onClick={changeAuthMode}>
                 Become a Trainer
-              </Link>
+              </span>
             </div>
             <div className="user-box">
               <label>Email</label>
@@ -58,14 +76,14 @@ const Auth = (props) => {
 
   return (
     <div className="signup-form-container">
-      <form className="Auth-form">
+      <form className="Auth-form" onSubmit={handleSignUp} name={name}>
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign Up</h3>
           <div className="text-center">
             Already registered?
-            <Link className="switch" to="/login" onClick={changeAuthMode}>
+            <span className="switch" to="/login" onClick={changeAuthMode}>
               Log In
-            </Link>
+            </span>
           </div>
           <div className="user-box">
             <label>First Name</label>
@@ -113,7 +131,7 @@ const Auth = (props) => {
             <button type="submit" className="signupbtn">
               Sign Up
             </button>
-            <input type="reset" value="reset"></input>
+            <input type="reset" className="resetbtn" value="reset"></input>
           </div>
         </div>
       </form>
@@ -136,24 +154,36 @@ const mapSignup = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    handleSubmit(evt) {
-      evt.preventDefault();
-      const formName = evt.target.name;
-      const email = evt.target.email.value;
-      const password = evt.target.password.value;
-      if (formName === 'login') {
-        dispatch(authenticate(email, password, formName));
-      } else {
-        const firstName = evt.target.firstName.value;
-        const lastName = evt.target.lastName.value;
-        const address = evt.target.address.value;
-        dispatch(
-          authenticate(email, password, formName, firstName, lastName, address),
-        );
-      }
-    },
+    loginAuth: (email, password, formName) =>
+      dispatch(authenticate(email, password, null, null, null, formName)),
+    signupAuth: (email, password, firstName, lastName, address, formName) =>
+      dispatch(
+        authenticate(email, password, firstName, lastName, address, formName),
+      ),
   };
 };
+
+// const mapDispatch = (dispatch) => {
+//   return {
+//     handleSubmit(evt) {
+//       console.log('handlesubmit');
+//       evt.preventDefault();
+//       const formName = evt.target.name;
+//       const email = evt.target.email.value;
+//       const password = evt.target.password.value;
+//       if (formName === 'login') {
+//         dispatch(authenticate(email, password, formName));
+//       } else {
+//         const firstName = evt.target.firstName.value;
+//         const lastName = evt.target.lastName.value;
+//         const address = evt.target.address.value;
+//         dispatch(
+//           authenticate(email, password, formName, firstName, lastName, address),
+//         );
+//       }
+//     },
+//   };
+// };
 
 export const Login = connect(mapLogin, mapDispatch)(Auth);
 export const Signup = connect(mapSignup, mapDispatch)(Auth);
