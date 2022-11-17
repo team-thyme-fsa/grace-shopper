@@ -4,27 +4,27 @@ const Footer = () => {
   return (
     <footer className="footer-main">
       <div className="footer-right">
-        <a href="#">
-          <i className="-member"></i>
+        <a target="_blank" href="https://github.com/fguillen1215">
+          <i className="member">F</i>
         </a>
-        <a href="#">
-          <i className="member"></i>
+        <a target="_blank" href="https://github.com/thingung">
+          <i className="-member">E</i>
         </a>
-        <a href="#">
-          <i className="member"></i>
+        <a target="_blank" href="https://github.com/cxb0934">
+          <i className="member">C</i>
         </a>
-        <a href="#">
-          <i className="member"></i>
+        <a target="_blank" href="https://github.com/ggiggity">
+          <i className="member">K</i>
         </a>
       </div>
 
       <div className="footer-left">
         <p className="footer-links">
-          <a className="link-1" href="/pokemart">
+          <a className="link-1" href="/">
             Home
           </a>
-          <a href="/products">Products</a>
-          <a href="#">About Us</a>
+          <a href="/">Products</a>
+          <a href="/intro">About Us</a>
         </p>
 
         <p>Team Rockey &copy; 1996</p>
