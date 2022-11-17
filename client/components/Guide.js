@@ -6,18 +6,18 @@ const Guide = () => {
       <div className="guide-title">
         <h2>Pokeball Guide</h2>
       </div>
+      <div className="guide-image-container">
+        <img
+          width="400px"
+          className="guide-img"
+          src="https://archives.bulbagarden.net/media/upload/2/23/Pok%C3%A9_Balls_GL.png"
+        ></img>
+        <img
+          className="guide-img"
+          src="https://visonicdome.com/wp-content/uploads/2021/06/visonic-dome-pokeball-sketch.png"
+        />
+      </div>
       <div>
-        <div className="guide-image-container">
-          <img
-            width="400px"
-            className="guide-img"
-            src="https://archives.bulbagarden.net/media/upload/2/23/Pok%C3%A9_Balls_GL.png"
-          ></img>
-          <img
-            className="guide-img"
-            src="https://visonicdome.com/wp-content/uploads/2021/06/visonic-dome-pokeball-sketch.png"
-          />
-        </div>
         <h3>Description</h3>
         <div className="description">
           A Poké Ball (Japanese: モンスターボール Monster Ball) is a type of
@@ -34,11 +34,12 @@ const Guide = () => {
 
         <div className="caution">
           <h1>!!Caution!!</h1>
-          <p>
+          <p className="caution-content">
             Make sure you don't throw the pokeball too hard, it'll hurt a lil
             fella
           </p>
           <img
+            className="caution-content"
             width="500px"
             src="https://cdn.donmai.us/original/e1/61/e161df25ccb6971176509199a26a38c0.jpg"
           />

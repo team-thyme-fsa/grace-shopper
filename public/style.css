@@ -294,15 +294,33 @@ input.user-box{
 .about-us-title{
   padding-bottom: 10px;
 }
-.guide-img{
-  margin: 20px 30px 20px 30px;
-
-}
-.guide-content{
+.guide-container{
   display: flex;
-  justify-content:center;
+  flex-direction: column;
+  justify-content: space-evenly;  
+  margin: 20px 30px 20px 30px;
+}
+.guide-img{
+  padding: 30px;
+  margin:30px
+}
+/* .guide-content{
+  display: flex;
   flex-direction: column;
   margin: 20px 30px 20px 30px;
+} */
 
+.description{
+  width: 1000px;
+  margin-left: 30px
 }
 
+.caution-content{
+  padding:30px;
+  margin:30px
+}
+.caution{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
