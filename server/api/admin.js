@@ -16,7 +16,8 @@ const requireToken = async (req, res, next) => {
 router.post('/product', requireToken, async (req, res, next) => {
   try {
     if (req.user.admin) {
-      res.status(201).send(await Product.create(req.body));
+      await Product.create(req.body.product);
+      res.status(201).send(await Product.findAll());
     } else {
       res.status(403).send('Forbidden: Access Denied');
     }
@@ -30,7 +31,8 @@ router.put('/product/:id', requireToken, async (req, res, next) => {
   try {
     if (req.user.admin) {
       const product = await Product.findByPk(req.params.id);
-      res.send(await product.update(req.body));
+      await product.update(req.body.product);
+      res.send(await Product.findAll());
     } else {
       res.status(403).send('Forbidden: Access Denied');
     }

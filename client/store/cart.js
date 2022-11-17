@@ -4,19 +4,18 @@ import axios from 'axios';
  * Action Types
  */
 
- const ADD_TO_CART = 'ADD_TO_CART';
- const UPDATE_QTY = 'UPDATE_QTY';
- const SET_CART = 'SET_CART';
- const REMOVE_ITEM = 'REMOVE_ITEM';
-
+const ADD_TO_CART = 'ADD_TO_CART';
+const UPDATE_QTY = 'UPDATE_QTY';
+const SET_CART = 'SET_CART';
+const REMOVE_ITEM = 'REMOVE_ITEM';
 
 /**
  * Action Creators
  */
 const _addToCart = (products) => ({ type: ADD_TO_CART, products });
 const _updateQty = (products) => ({ type: UPDATE_QTY, products });
-const _fetchCart = (products) => ({ type: SET_CART, products});
-const _removeItem = (products) => ({ type: REMOVE_ITEM, products});
+const _fetchCart = (products) => ({ type: SET_CART, products });
+const _removeItem = (products) => ({ type: REMOVE_ITEM, products });
 /**
  * Thunk Creators
  */
@@ -67,14 +66,14 @@ export const addToCart = (user, product) => {
 
 export const updateQty = (user, product) => {
   return async (dispatch) => {
-    if(user.id) {
+    if (user.id) {
       const { data } = await axios.put(`/api/orders/${user.id}`, {
         userId: user.id,
         name: product.name,
         quantity: product.quantity,
         price: product.price,
         imageUrl: product.imageUrl,
-        productId: product.productId
+        productId: product.productId,
       });
       dispatch(_updateQty(data))
     } else {
@@ -94,15 +93,17 @@ export const updateQty = (user, product) => {
 export const fetchCart = (user) => {
   return async (dispatch) => {
     if (user.id) {
-      const { data } = await axios.get(`/api/orders/${user.id}`)
+      const { data } = await axios.get(`/api/orders/${user.id}`);
       dispatch(_fetchCart(data));
     } else {
-      let cart = window.localStorage.getItem('cart') ? JSON.parse(window.localStorage.getItem('cart')) : {products: []};
+      let cart = window.localStorage.getItem('cart')
+        ? JSON.parse(window.localStorage.getItem('cart'))
+        : { products: [] };
       window.localStorage.setItem('cart', JSON.stringify(cart));
       dispatch(_fetchCart(cart.products));
     }
-  }
-}
+  };
+};
 
 export const removeItem = (user, product) => {
   return async(dispatch) => {
@@ -122,23 +123,22 @@ export const removeItem = (user, product) => {
       window.localStorage.setItem('cart', JSON.stringify(cart))
       dispatch(_removeItem(cart.products));
     }
-  }
-}
+  };
+};
 
 export default function cartReducer(state = [], action) {
   switch (action.type) {
     case ADD_TO_CART: {
-      console.log(action.products);
       return [...action.products];
     }
     case UPDATE_QTY: {
-      return [ ...action.products ]
+      return [...action.products];
     }
     case SET_CART: {
-      return [ ...action.products ]
+      return [...action.products];
     }
     case REMOVE_ITEM: {
-      return [ ...action.products ]
+      return [...action.products];
     }
     default:
       return state;
