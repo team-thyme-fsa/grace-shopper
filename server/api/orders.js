@@ -40,6 +40,33 @@ router.post('/', requireToken, async (req, res, next) => {
   }
 });
 
+//PUT /api/orders/
+router.put('/', async (req, res, next) => {
+  try {
+    const order = await Order.findOne({
+      where: {
+        userId: req.body.userId,
+        completed: false,
+      },
+    });
+    await order.update({ completed: true });
+    const user = await User.findByPk(req.body.userId);
+    console.log(user);
+    const newOrder = await Order.create({
+      userId: req.body.userId,
+      shippingInfo: user.address,
+      billingInfo: user.address,
+      completed: false,
+    });
+    const products = await Order_Products.findAll({
+      where: { orderId: newOrder.id },
+    });
+    res.send(products);
+  } catch (error) {
+    next(error);
+  }
+});
+
 // POST /api/orders/addproduct
 router.post('/addproduct', requireToken, async (req, res, next) => {
   try {
@@ -68,8 +95,6 @@ router.post('/addproduct', requireToken, async (req, res, next) => {
       });
     } else {
       // if order product created update its price
-      console.log(req.body.price)
-      console.log(req.body.imageUrl)
       await orderProducts.update({ price: req.body.price, imageUrl: req.body.imageUrl });
     }
     res.send(

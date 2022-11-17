@@ -19,6 +19,7 @@ const _removeItem = (products) => ({ type: REMOVE_ITEM, products });
 /**
  * Thunk Creators
  */
+
 export const addToCart = (user, product) => {
   return async (dispatch) => {
     if (user.id) {
