@@ -71,6 +71,7 @@ form div {
   background-image: url("https://wallpaper.dog/large/10810019.jpg");
 }
 
+
 .address-form-container{
   display: flex;
   box-shadow: rgb(0 0 0 / 200%) 1px 1px 10px;
@@ -88,7 +89,9 @@ form div {
 .text-center{
   cursor: pointer;
 }
+
 .switch{
+  cursor: pointer;
   color:#227ee7;
   margin-left: 10px;
 }
