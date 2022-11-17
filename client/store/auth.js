@@ -39,6 +39,7 @@ export const authenticate =
   ) =>
   async (dispatch) => {
     try {
+      console.log('in Auth');
       const res = await axios.post(`/auth/${method}`, {
         email,
         password,
@@ -46,6 +47,7 @@ export const authenticate =
         lastName,
         address,
       });
+      console.log(res);
       window.localStorage.setItem(TOKEN, res.data.token);
       dispatch(me());
       history.push('/');

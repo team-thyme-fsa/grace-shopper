@@ -27,35 +27,6 @@ export const createOrder = (user) => {
   };
 };
 
-// export const fetchOrder = (user, product, quantity) => {
-//   return async (dispatch) => {
-//     console.log('User', user.id)
-//     if (user.id) {
-//       const { data } = await axios.post('/api/orders/addproduct', {
-//         userId: user.id,
-//         name: product.name,
-//         quantity: quantity,
-//       });
-//       console.log(data)
-//       dispatch(setOrder(data));
-//     } else {
-//       let cart = window.localStorage.getItem('cart') ? JSON.parse(window.localStorage.getItem('cart')) : {products: []}
-
-//       for (let curProd of cart.products) {
-//         if(curProd.id === product.id) {
-//           curProd.quantity += Number(quantity);
-//           break
-//         } else {
-//           cart.products.push({ ...product, quantity: Number(quantity) });
-//         }
-//       }
-
-//       window.localStorage.setItem('cart', JSON.stringify(cart));
-//       dispatch(setOrder(cart.products));
-//     }
-//   }
-// }
-
 export default function orderReducer(state = {}, action) {
   switch (action.type) {
     case CREATE_ORDER: {
