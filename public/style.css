@@ -70,12 +70,9 @@ form div {
   background-position: right;
   background-image: url("https://wallpaper.dog/large/10810019.jpg");
 }
-
-
-.text-center{
-  cursor: pointer;
-}
+ 
 .switch{
+  cursor: pointer;
   color:#227ee7;
   margin-left: 10px;
 }
