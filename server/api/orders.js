@@ -103,8 +103,9 @@ router.put('/:id', async (req, res, next) => {
 // DELETE /api/orders/:id
 router.delete('/:id', async (req, res, next) => {
   try {
+    console.log(req.body)
     const order = await Order.findOne({ where: { userId: req.params.id, completed: false}});
-    const product = await Product.findByPk(req.body.productId)
+    const product = await Product.findByPk(req.body.product.productId)
     const orderProduct = await Order_Products.findOne({
       where: {
         productId: product.id,

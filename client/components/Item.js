@@ -23,7 +23,7 @@ const Item = (props) => {
   }
 
   const remove_item = () => {
-    removeItem(user, { ...props.product})
+    removeItem(user, { ...props.product })
   }
 
   return (
