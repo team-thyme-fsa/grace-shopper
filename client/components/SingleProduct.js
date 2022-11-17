@@ -39,17 +39,6 @@ const SingleProduct = (props) => {
               >
               ADD TO CART
             </button>
-
-            <div id="details-button">
-              {/* TODO(Carina): add onClick */}
-              <button
-                type="button"
-                name="details"
-                className="details-button outl"
-              >
-                DETAILS
-              </button>
-            </div>
           </div>
       </div>
     </div>
