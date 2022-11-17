@@ -35,11 +35,12 @@ export const processOrder = (userId) => {
       if (userId) {
         const { data } = await axios.put('/api/orders', { userId });
         dispatch(processedOrder(data));
+        redirect('/checkout');
       } else {
         window.localStorage.clear();
         // const cart = JSON.parse(window.localStorage.getItem('cart'));
         // window.localStorage.setItem('cart',JSON.stringify({}))
-        redirect('/');
+        redirect('/checkout');
       }
     } catch (error) {
       console.log(error);
