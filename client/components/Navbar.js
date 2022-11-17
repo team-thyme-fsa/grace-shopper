@@ -7,6 +7,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
     <nav id="navbar">
       <Link to="/">HOME</Link>
+      <Link to="/intro">MEDICINE</Link>
       <Link to="/pokéballs">POKÉBALLS</Link>
       <Link to="/medicine">MEDICINE</Link>
       <h1>PokéMart</h1>
