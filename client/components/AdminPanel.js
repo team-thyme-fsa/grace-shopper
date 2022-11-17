@@ -57,6 +57,7 @@ const AdminPanel = (props) => {
 
   const deleteProductSubmit = () => {
     deleteProd(edit_product);
+    window.location.reload(false);
   };
 
   return (
