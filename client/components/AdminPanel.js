@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const AdminPannel = (props) => {
+const AdminPanel = (props) => {
   return (
     <div>
       <p>Admin</p>
@@ -12,4 +12,4 @@ const mapState = (state) => {};
 
 const mapDispatch = (state) => {};
 
-export default connect(mapState, mapDispatch)(AdminPannel);
+export default connect(mapState, mapDispatch)(AdminPanel);
