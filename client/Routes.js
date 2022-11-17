@@ -8,6 +8,7 @@ import SingleProduct from './components/SingleProduct';
 import Cart from './components/Cart';
 import AllMedicine from './components/AllMedicine';
 import AllPokeballs from './components/AllPokeballs';
+import CheckoutPage from './components/CheckoutPage';
 import AdminPanel from './components/AdminPanel';
 import { me } from './store';
 
@@ -41,6 +42,7 @@ class Routes extends Component {
             <Route path="/products/:id" component={SingleProduct} />
             <Route exact path="/medicine" component={AllMedicine} />
             <Route exact path="/pokeballs" component={AllPokeballs} />
+            <Route exact path="/checkout" component={CheckoutPage} />
           </Switch>
         )}
       </div>
