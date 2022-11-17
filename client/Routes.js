@@ -5,7 +5,14 @@ import { Login, Signup } from './components/Login';
 import Home from './components/Home';
 import AllProducts from './components/AllProducts';
 import SingleProduct from './components/SingleProduct';
+import Cart from './components/Cart';
+import AllMedicine from './components/AllMedicine';
+import AllPokeballs from './components/AllPokeballs';
+import CheckoutPage from './components/CheckoutPage';
+import AdminPanel from './components/AdminPanel';
 import { me } from './store';
+import Intro from './components/Intro';
+import Guide from './components/Guide';
 
 /**
  * COMPONENT
@@ -16,22 +23,34 @@ class Routes extends Component {
   }
 
   render() {
-    const { isLoggedIn } = this.props;
+    const { isLoggedIn, admin } = this.props;
 
     return (
       <div>
         {isLoggedIn ? (
           <Switch>
             <Route path="/login" component={Login} />
+            <Route exact path="/intro" component={Intro} />
+            <Route path="/intro/guide" component={Guide} />
             <Route exact path="/" component={AllProducts} />
             <Route path="/products/:id" component={SingleProduct} />
+            {admin ? <Route path="/admin" component={AdminPanel} /> : ''}
+            <Route path="/cart" component={Cart} />
+            <Route exact path="/medicine" component={AllMedicine} />
+            <Route exact path="/pokeballs" component={AllPokeballs} />
+            <Route exact path="/checkout" component={CheckoutPage} />
           </Switch>
         ) : (
           <Switch>
+            <Route exact path="/intro" component={Intro} />
+            <Route path="/intro/guide" component={Guide} />
             <Route path="/login" component={Login} />
-            {/* <Route path="/signup" component={Signup} /> */}
+            <Route path="/cart" component={Cart} />
             <Route exact path="/" component={AllProducts} />
             <Route path="/products/:id" component={SingleProduct} />
+            <Route exact path="/medicine" component={AllMedicine} />
+            <Route exact path="/pokeballs" component={AllPokeballs} />
+            <Route exact path="/checkout" component={CheckoutPage} />
           </Switch>
         )}
       </div>
@@ -47,6 +66,7 @@ const mapState = (state) => {
     // Being 'logged in' for our purposes will be defined has having a state.auth that has a truthy id.
     // Otherwise, state.auth will be an empty object, and state.auth.id will be falsey
     isLoggedIn: !!state.auth.id,
+    admin: state.auth.admin,
   };
 };
 

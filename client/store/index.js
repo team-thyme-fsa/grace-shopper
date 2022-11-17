@@ -5,12 +5,16 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import auth from './auth';
 import products from './products';
 import order from './order';
+import medicinesReducer from './medicine';
+import pokeballsReducer from './pokeballs';
 import cart from './cart';
 
 const reducer = combineReducers({
   auth: auth,
   products: products,
   order: order,
+  medicinesReducer: medicinesReducer,
+  pokeballsReducer: pokeballsReducer,
   cart: cart,
 });
 
@@ -23,3 +27,5 @@ export default store;
 export * from './auth';
 export * from './products';
 export * from './order';
+export * from './medicine';
+export * from './pokeballs';

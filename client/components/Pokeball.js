@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addToCart } from '../store/cart';
+import { fetchOrder } from '../store/order';
 import { Link } from 'react-router-dom';
 
-const Product = (props) => {
+const Pokeball = (props) => {
   const { name, price, imageUrl, id } = props.product;
   const { addToOrder } = props;
   const { user } = props;
 
   const handleAddToCart = () => {
-    addToOrder(user, { id: id, name: name, quantity: 1, price: price, imageUrl: imageUrl });
+    addToOrder(user, { name: name, quantity: 1 });
   };
 
   return (
@@ -21,7 +21,6 @@ const Product = (props) => {
         <p className="price">{price}</p>
 
         <div className="buttons">
-          {/* TODO(Carina): check button type="button" OR "submit" */}
           <button
             type="button"
             className="add-to-cart-button otl"
@@ -31,7 +30,6 @@ const Product = (props) => {
           </button>
 
           <div id="details-button">
-            {/* TODO(Carina): add onClick */}
             <Link to={`/products/${id}`}>
               <button
                 type="button"
@@ -56,8 +54,8 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    addToOrder: (user, product) => dispatch(addToCart(user, product)),
+    addToOrder: (user, product) => dispatch(fetchOrder(user, product)),
   };
 };
 
-export default connect(mapState, mapDispatch)(Product);
+export default connect(mapState, mapDispatch)(Pokeball);
